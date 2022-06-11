@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Loader: React.FC = () => (
-    <div className='w-full h-full flex items-center justify-center'>
-        <div className='custom-loader w-8 h-8 border-2 rounded-full animate-spin' />
-    </div>
-)
+  <div className="custom-loader w-6 h-6 border-2 rounded-full animate-spin" />
+);
 
-export default Loader
+export default Loader;

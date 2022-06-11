@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const Projects: React.FC = () => {
-    return (
-        <div>
-            <h1>Projects</h1>
-        </div>
-    )
+interface Props {
+  id: string;
+  title: string;
+  desc: string;
+  image: string;
 }
 
-export default Projects
+const Projects: React.FC = () => {
+  return (
+    <div>
+      <h1>Projects</h1>
+    </div>
+  );
+};
+
+export default Projects;
