@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import ScrollObserver from "../utilities/useObserver";
+import ScrollObserver from "../utils/observer";
 import dynamic from "next/dynamic";
 import { Loader } from "../components";
 import { Suspense } from "react";

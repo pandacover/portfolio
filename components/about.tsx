@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { ScrollContext } from "../utilities/useObserver";
+import { ScrollContext } from "../utils/observer";
 import Link from "next/link";
 
 const About: React.FC = () => {

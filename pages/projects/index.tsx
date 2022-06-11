@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import NewHead from "../../utilities/useHead";
+import NewHead from "../../utils/head";
 
 export const Works = [
   {

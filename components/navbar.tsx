@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { HiOutlineSun } from "react-icons/hi";
 import { IoMdMoon } from "react-icons/io";
-import { ScrollContext } from "../utilities/useObserver";
+import { ScrollContext } from "../utils/observer";
 
 interface ItemsInterface {
   id: string;

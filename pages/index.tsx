@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { About, Bio, Online } from "../components";
-import NewHead from "../utilities/useHead";
+import NewHead from "../utils/head";
 
 const Home: NextPage = () => {
   return (

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React, { useRef, useState, useEffect } from "react";
 import { Loader } from "../../components";
-import { SendEmail } from "../../utilities/useContact";
+import { SendEmail } from "../../utils/contact";
 import { motion, AnimatePresence } from "framer-motion";
-import NewHead from "../../utilities/useHead";
+import NewHead from "../../utils/head";
 
 const variants = {
   hidden: { opacity: 0, scale: 0 },
