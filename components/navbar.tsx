@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
     e.preventDefault();
     setDarkMode(!darkMode);
     document.querySelector("body")?.classList.toggle("dark");
-    window.localStorage.setItem("dark", !darkMode);
+    window.localStorage.setItem("dark", ("" + !darkMode));
   };
 
   useEffect(() => {
@@ -46,11 +46,10 @@ const Navbar: React.FC = () => {
   return (
     <div className="w-full h-12">
       <header
-        className={`z-[999] ${
-          scrollY < 150
+        className={`z-[999] ${scrollY < 150
             ? "bg-opacity-20 dark:bg-opacity-20"
             : "bg-opacity-80 dark:bg-opacity-80"
-        } transition bg-white dark:bg-black w-[50vw] h-12 fixed flex items-center rounded-xl px-4 gap-4 backdrop-blur-lg`}
+          } transition bg-white dark:bg-black w-[50vw] h-12 fixed flex items-center rounded-xl px-4 gap-4 backdrop-blur-lg`}
       >
         <h1 className="font-semibold text-lg flex-[0.4]">
           <Link href="/" passHref>
@@ -62,11 +61,10 @@ const Navbar: React.FC = () => {
             <li key={item.id}>
               <Link href={item.link} passHref>
                 <a
-                  className={`px-4 py-2 hover:border-b hover:border-black dark:hover:border-gray-300 hover:opacity-75 ${
-                    router.asPath === item.link
+                  className={`px-4 py-2 hover:border-b hover:border-black dark:hover:border-gray-300 hover:opacity-75 ${router.asPath === item.link
                       ? "bg-emerald-200 text-black"
                       : ""
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </a>

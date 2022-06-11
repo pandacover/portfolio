@@ -58,7 +58,7 @@ const Projects: NextPage = () => {
         <ul className="grid grid-cols-2 gap-4 pt-8">
           {Works.map((item) => (
             <li key={item.id} className="mb-4">
-              <a className="text-center group" target="_blank" href={item.link}>
+              <a className="text-center group" target="_blank" rel='noreferrer' href={item.link}>
                 <figure className="relative w-full h-28 flex items-center justify-center">
                   <Image
                     className="object-contain rounded-lg group-hover:scale-110 transition"

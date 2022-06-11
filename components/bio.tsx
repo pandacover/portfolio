@@ -1,5 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
-import { ScrollContext } from "../utils/observer";
+import React from "react";
 
 interface ListInterface {
   id: string;

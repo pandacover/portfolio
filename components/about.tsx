@@ -19,13 +19,12 @@ const About: React.FC = () => {
   return (
     <div className="pt-8 ">
       <h1
-        className={`transition h-30 ${
-          textSize <= 8 && textSize > 4
+        className={`transition h-30 ${textSize <= 8 && textSize > 4
             ? "text-black dark:text-white"
             : textSize <= 4 && textSize > 0
-            ? "text-emerald-400"
-            : "text-red-400"
-        } text-6xl`}
+              ? "text-emerald-400"
+              : "text-red-400"
+          } text-6xl`}
       >
         Hi Stranger, <br /> This is Luv Makin
       </h1>
@@ -54,7 +53,7 @@ const About: React.FC = () => {
       </p>
       <p className="pt-8">
         <span className="text-lg opacity-50">
-          &#34;That's enough about me&#34;{" "}
+          &#34;That&apos;s enough about me&#34;{" "}
           <em className="text-sm">Pun intended</em>
         </span>
         <span>- Luv Makin, 2022</span>
