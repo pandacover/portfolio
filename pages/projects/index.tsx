@@ -55,13 +55,13 @@ const Projects: NextPage = () => {
         <h1 className="font-bold text-xl pb-[2px] border-b-4 border-gray-400 w-fit">
           My Personal Projects
         </h1>
-        <ul className="grid grid-cols-2 gap-4 pt-8">
+        <ul className="grid grid-cols-2 gap-6 pt-8">
           {Works.map((item) => (
             <li key={item.id} className="mb-4">
-              <a className="text-center group" target="_blank" rel='noreferrer' href={item.link}>
-                <figure className="relative w-full h-28 flex items-center justify-center">
+              <a className="group" target="_blank" rel='noreferrer' href={item.link}>
+                <figure className="relative w-full h-36 flex">
                   <Image
-                    className="object-contain rounded-lg group-hover:scale-110 transition"
+                    className="object-cover ounded-lg group-hover:scale-110 transition"
                     src={item.image}
                     alt="One of my project"
                     layout="fill"
@@ -69,7 +69,7 @@ const Projects: NextPage = () => {
                 </figure>
                 <div>
                   <h1 className="text-xl font-medium py-2">{item.title}</h1>
-                  <p className="px-4 text-sm">{item.desc}</p>
+                  <p className="text-sm">{item.desc}</p>
                 </div>
               </a>
             </li>

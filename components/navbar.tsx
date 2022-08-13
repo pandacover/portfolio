@@ -44,26 +44,26 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full h-12">
+    <div className="w-[55vw] ml-[-1.8rem] h-12">
       <header
         className={`z-[999] ${scrollY < 150
-            ? "bg-opacity-20 dark:bg-opacity-20"
-            : "bg-opacity-80 dark:bg-opacity-80"
-          } transition bg-white dark:bg-black w-[50vw] h-12 fixed flex items-center rounded-xl px-4 gap-4 backdrop-blur-lg`}
+          ? "bg-opacity-20 dark:bg-opacity-20"
+          : "bg-opacity-80 dark:bg-opacity-80"
+          } transition bg-white dark:bg-black h-12 pl-8 w-[55vw] fixed flex items-center rounded-xl gap-4 backdrop-blur-lg`}
       >
         <h1 className="font-semibold text-lg flex-[0.4]">
           <Link href="/" passHref>
             <a>Luv Makin</a>
           </Link>
         </h1>
-        <ul className="flex gap-4 flex-1">
+        <ul className="flex gap-2 flex-1">
           {NavbarItems.map((item) => (
             <li key={item.id}>
               <Link href={item.link} passHref>
                 <a
                   className={`px-4 py-2 hover:border-b hover:border-black dark:hover:border-gray-300 hover:opacity-75 ${router.asPath === item.link
-                      ? "bg-emerald-200 text-black"
-                      : ""
+                    ? "bg-emerald-200 text-black"
+                    : ""
                     }`}
                 >
                   {item.name}
@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={(e) => toggleTheme(e)}
-              className="p-[.75rem] bg-amber-200 rounded-lg text-black text-lg hover:bg-amber-400 transition"
+              className="p-[.6rem] bg-amber-200 rounded-lg text-black text-lg hover:bg-amber-400 transition"
             >
               {<HiOutlineSun />}
             </button>
@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={(e) => toggleTheme(e)}
-              className="p-[.75rem] bg-violet-500 rounded-lg text-white text-lg hover:bg-violet-700 transition"
+              className="p-[.6rem] bg-violet-500 rounded-lg text-white text-lg hover:bg-violet-700 transition"
             >
               {<IoMdMoon />}
             </button>

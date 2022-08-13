@@ -15,7 +15,7 @@ const variants = {
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <main className="bg-rose-50 dark:bg-neutral-900 dark:text-white min-h-screen max-w-screen">
-      <div className="relative min-h-screen w-[50vw] mx-auto py-4">
+      <div className="relative min-h-screen w-[50vw] mx-auto pb-4">
         <Navbar />
         <AnimatePresence>
           <motion.div
