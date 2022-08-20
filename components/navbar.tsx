@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
   }, []);
   return (
     <nav className={`z-[999] w-[110%] ml-[-2%] h-12 top-0 sticky flex flex-wrap items-center text-black transition-all
-    dark:text-white bg-[#0001] dark:bg-[#fff1] pl-5 rounded-bl-xl rounded-br-xl ${scrollY > 250 ? 'dark:bg-black bg-rose-100': ''}`}>
+    dark:text-white bg-[#0001] dark:bg-[#fff1] px-5 rounded-bl-xl rounded-br-xl ${scrollY > 250 ? 'dark:bg-black bg-rose-100': ''}`}>
       <ul className='flex flex-[2] gap-2 h-full items-center'>
       <li className='mr-4 group'>
         <Link href='/' passHref>
@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={(e) => toggleTheme(e)}
-            className="p-[.6rem] bg-amber-200 rounded-lg text-black text-lg hover:bg-amber-400 transition"
+            className="p-[.4rem] bg-amber-200 rounded-full text-black text-lg hover:bg-amber-400 transition"
           >
             {<HiOutlineSun />}
           </button>
@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={(e) => toggleTheme(e)}
-            className="p-[.6rem] bg-violet-500 rounded-lg text-white text-lg hover:bg-violet-700 transition"
+            className="p-[.4rem] bg-violet-500 rounded-full text-white text-lg hover:bg-violet-700 transition"
           >
             {<IoMdMoon />}
           </button>
