@@ -7,7 +7,7 @@ import NewHead from "../utils/head";
 const Home: NextPage = () => {
   return (
     <motion.div 
-      className="w-full h-full pt-8"  
+      className="w-full h-full"  
       variants={variants} initial='initial' animate='animate'>
       <NewHead title="Home" />
       <About />

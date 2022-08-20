@@ -1,32 +1,28 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { ScrollContext } from "../utils/observer";
 import Link from "next/link";
 
 const About: React.FC = () => {
   const { scrollY } = useContext(ScrollContext);
-  const [textSize, setTextSize] = useState(4);
   const collegeURL = "https://www.chitkara.edu.in/";
   const leetcodeURL = "https://www.leetcode.com/luvmakin";
+  const refContainer = useRef<HTMLDivElement>(null)
+  const { current: elContainer } = refContainer
+  let progress = 0;
 
-  useEffect(() => {
-    setTextSize(
-      Math.floor(
-        scrollY > 0 ? ((8 / scrollY) * 10 > 8 ? 8 : (8 / scrollY) * 10) : 8
-      )
-    );
-  }, [scrollY]);
+  if(elContainer) {
+    progress = Math.ceil(scrollY * 16 / elContainer.offsetHeight)
+  }
 
   return (
-    <div className="pt-8 ">
-      <h1
-        className={`transition h-30 ${textSize <= 8 && textSize > 4
-            ? "text-black dark:text-white"
-            : textSize <= 4 && textSize > 0
-              ? "text-emerald-400"
-              : "text-red-400"
-          } text-6xl`}
-      >
-        Hi Stranger, <br /> This is Luv Makin
+    <div ref={refContainer} className="pt-6">
+      <h1 className="transition min-h-fit text-7xl font-bold py-12">
+        <span className={`${progress <= 1 ? 'emeraldGradientLeft' : ''} transition-all duration-300 ease-in-out`}>Hi </span>
+        <span className={`${progress <= 2 && progress > 1 ? 'emeraldGradientRight' : ''} transition-all duration-300 ease-in-out`}>Stranger </span> <br />
+        <span className={`${progress <= 3 && progress > 2 ? 'redGradientRight' : ''} transition-all duration-300 ease-in-out`}>This </span>
+        <span className={`${progress <= 4 && progress > 3 ? 'redGradientLeft' : ''} transition-all duration-300 ease-in-out`}>is </span><br />
+        <span className={`${progress > 4 ? 'blueGradientRight' : ''} transition-all duration-300 ease-in-out`}>Luv </span>
+        <span className={`${progress > 5 ? 'blueGradientLeft' : ''} transition-all duration-300 ease-in-out`}>Makin</span>
       </h1>
       <h3 className="font-bold tracking-wide text-lg pt-6 border-b-4 w-fit border-zinc-500">
         About Me
