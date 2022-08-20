@@ -9,7 +9,7 @@ interface Props {
 
 export const variants = {
   initial: {opacity: "0", x: "-100%"},
-  animate: {opacity: "1", x: "0", transition: { delay: 0.5, type: "spring", damping: 15, spring: 70 }},
+  animate: {opacity: "1", x: "0", transition: { delay: 0.5, type: "spring", damping: 12, spring: 70 }},
 };
 
 const Layout: React.FC<Props> = ({ children }) => {
