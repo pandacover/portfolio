@@ -9,3 +9,12 @@
 body.dark .custom-loader {
     border-color: #fff #fff #fff #ccf;
 }
+
+@layer components {
+
+    .nav-link {
+        @apply h-[90%] flex items-center hover:after:animate-spreadBottom focus:after:animate-spreadBottom relative after:absolute after:bottom-0 
+        after:w-0 after:h-[2px] after:bg-zinc-500 after:left-[calc(50%-2px)];
+
+    }
+}

@@ -1,6 +1,8 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import NewHead from "../../utils/head";
+import { motion } from 'framer-motion'
+import { variants } from '../../components/Layout'
 
 export const Works = [
   {
@@ -49,7 +51,9 @@ export const Works = [
 
 const Projects: NextPage = () => {
   return (
-    <>
+    <motion.div
+            className="w-full h-full pt-8"
+            variants={variants} initial='initial' animate='animate'>
       <NewHead title="Projects" />
       <div className="mt-8">
         <h1 className="font-bold text-xl pb-[2px] border-b-4 border-gray-400 w-fit">
@@ -76,7 +80,7 @@ const Projects: NextPage = () => {
           ))}
         </ul>
       </div>
-    </>
+    </motion.div>
   );
 };
 

@@ -7,25 +7,18 @@ interface Props {
   children: React.ReactNode;
 }
 
-const variants = {
-  initial: { y: "100%", opacity: 0 },
-  animate: { y: 0, opacity: 1, transition: { delay: 0.5 } },
+export const variants = {
+  initial: {opacity: "0", x: "-100%"},
+  animate: {opacity: "1", x: "0", transition: { delay: 0.5, type: "spring", damping: 15, spring: 70 }},
 };
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <main className="bg-rose-50 dark:bg-neutral-900 dark:text-white min-h-screen max-w-screen">
-      <div className="relative min-h-screen w-[50vw] mx-auto pb-4">
+      <div className="relative min-h-screen md:w-[50vw] mx-auto w-[80vw] pb-4">
         <Navbar />
         <AnimatePresence>
-          <motion.div
-            className="w-full h-full"
-            variants={variants}
-            initial="initial"
-            animate="animate"
-          >
-            {children}
-          </motion.div>
+          {children}
         </AnimatePresence>
         <Footer />
       </div>

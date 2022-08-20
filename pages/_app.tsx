@@ -4,6 +4,7 @@ import ScrollObserver from "../utils/observer";
 import dynamic from "next/dynamic";
 import { Loader } from "../components";
 import { Suspense } from "react";
+import { AnimatePresence } from "framer-motion";
 
 const LazyLayout = dynamic(() => import("../components/Layout"), {
   suspense: true,

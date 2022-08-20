@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
     e.preventDefault();
     setDarkMode(!darkMode);
     document.querySelector("body")?.classList.toggle("dark");
-    window.localStorage.setItem("dark", ("" + !darkMode));
+    window.localStorage.setItem("dark", "" + !darkMode);
   };
 
   useEffect(() => {
@@ -42,57 +42,43 @@ const Navbar: React.FC = () => {
       setDarkMode(true);
     }
   }, []);
-
   return (
-    <div className="w-[55vw] ml-[-1.8rem] h-12">
-      <header
-        className={`z-[999] ${scrollY < 150
-          ? "bg-opacity-20 dark:bg-opacity-20"
-          : "bg-opacity-80 dark:bg-opacity-80"
-          } transition bg-white dark:bg-black h-12 pl-8 w-[55vw] fixed flex items-center rounded-xl gap-4 backdrop-blur-lg`}
-      >
-        <h1 className="font-semibold text-lg flex-[0.4]">
-          <Link href="/" passHref>
-            <a>Luv Makin</a>
-          </Link>
-        </h1>
-        <ul className="flex gap-2 flex-1">
-          {NavbarItems.map((item) => (
-            <li key={item.id}>
-              <Link href={item.link} passHref>
-                <a
-                  className={`px-4 py-2 hover:border-b hover:border-black dark:hover:border-gray-300 hover:opacity-75 ${router.asPath === item.link
-                    ? "bg-emerald-200 text-black"
-                    : ""
-                    }`}
-                >
-                  {item.name}
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="flex-1 flex justify-end">
-          {darkMode ? (
-            <button
-              type="button"
-              onClick={(e) => toggleTheme(e)}
-              className="p-[.6rem] bg-amber-200 rounded-lg text-black text-lg hover:bg-amber-400 transition"
-            >
-              {<HiOutlineSun />}
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={(e) => toggleTheme(e)}
-              className="p-[.6rem] bg-violet-500 rounded-lg text-white text-lg hover:bg-violet-700 transition"
-            >
-              {<IoMdMoon />}
-            </button>
-          )}
-        </div>
-      </header>
-    </div>
+    <nav className={`z-[999] w-full h-12 top-0 sticky flex flex-wrap items-center text-black transition-all
+    dark:text-white bg-[#0001] dark:bg-[#fff1] px-1 rounded-bl-xl rounded-br-xl ${scrollY > 250 ? 'dark:bg-black bg-rose-100': ''}`}>
+      <ul className='flex flex-[2] gap-2 h-full items-center'>
+      <li className='mr-4 group'>
+        <Link href='/' passHref>
+          <a className='font-semibold'>L<span className='text-blue-500 group-hover:text-blue-300 transition-all'>M</span></a>
+        </Link>
+      </li>
+        {NavbarItems.map(({id, name, link}) => (
+          <li key={id} className='nav-link mr-2'>
+            <Link href={link}>
+              <a>{name}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <div className="flex justify-end flex-1">
+        {darkMode ? (
+          <button
+            type="button"
+            onClick={(e) => toggleTheme(e)}
+            className="p-[.6rem] bg-amber-200 rounded-lg text-black text-lg hover:bg-amber-400 transition"
+          >
+            {<HiOutlineSun />}
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={(e) => toggleTheme(e)}
+            className="p-[.6rem] bg-violet-500 rounded-lg text-white text-lg hover:bg-violet-700 transition"
+          >
+            {<IoMdMoon />}
+          </button>
+        )}
+      </div>
+      </nav>
   );
 };
 

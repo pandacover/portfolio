@@ -8,10 +8,8 @@ interface Props {
 }
 
 const Projects: React.FC = () => {
-  return (
-    <div>
+  return ( 
       <h1>Projects</h1>
-    </div>
   );
 };
 

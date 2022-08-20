@@ -4,6 +4,7 @@ import { Loader } from "../../components";
 import { SendEmail } from "../../utils/contact";
 import { motion, AnimatePresence } from "framer-motion";
 import NewHead from "../../utils/head";
+import { variants as slideVariant } from "../../components/Layout";
 
 const variants = {
   hidden: { opacity: 0, scale: 0 },
@@ -58,7 +59,10 @@ const Contact: React.FC = () => {
     SendEmail(formRef.current);
   };
   return (
-    <>
+    <motion.div 
+      className="w-full h-full pt-8"  
+      variants={slideVariant} initial='initial' animate='animate'>
+
       <NewHead title="Contact" />
       <div className="mt-12">
         <AnimatePresence>{isAlert && <Alert />}</AnimatePresence>
@@ -118,7 +122,7 @@ const Contact: React.FC = () => {
           </Link>
         </h1>
       </div>
-    </>
+    </motion.div>
   );
 };
 
