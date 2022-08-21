@@ -19,14 +19,14 @@ body.dark .custom-loader {
     }
 
     .emeraldGradientLeft {
-        @apply bg-gradient-to-br from-emerald-800 to-emerald-400 dark:from-emerald-100 dark:to-emerald-500 bg-clip-text text-transparent;
+        @apply bg-gradient-to-tr from-emerald-600 to-teal-600 bg-clip-text text-transparent;
     }
     .emeraldGradientRight {
-        @apply bg-gradient-to-tr from-emerald-400 to-emerald-800 bg-clip-text text-transparent;
+        @apply bg-gradient-to-br from-teal-600 to-cyan-800 bg-clip-text text-transparent;
     }
 
     .redGradientLeft {
-        @apply bg-gradient-to-br from-red-800 to-red-400 dark:from-red-100 dark:to-red-500 bg-clip-text text-transparent;
+        @apply bg-gradient-to-tr from-blue-800 to-indigo-600 dark:from-red-100 dark:to-red-500 bg-clip-text text-transparent;
     }
     .redGradientRight {
         @apply bg-gradient-to-tr from-red-400 to-red-800 bg-clip-text text-transparent;

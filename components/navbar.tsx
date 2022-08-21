@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
     }
   }, []);
   return (
-    <nav className={`z-[999] w-[110%] ml-[-2%] h-12 top-0 sticky flex flex-wrap items-center text-black transition-all
+    <nav className={`z-[999] w-[110%] ml-[-5%] h-12 top-0 sticky flex flex-wrap items-center text-black transition-all
     dark:text-white bg-[#0001] dark:bg-[#fff1] px-5 rounded-bl-xl rounded-br-xl backdrop-blur-md
     ${scrollY > 250 ? 'dark:bg-black bg-rose-100': ''}`}>
       <ul className='flex flex-[2] gap-2 h-full items-center'>
