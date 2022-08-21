@@ -13,7 +13,7 @@ type SpanProps = {
 const Span: React.FC<SpanProps> = ({ children, progress, lowerLimit, gradientOne, gradientTwo }) => {
   let currentProgress = progress
   return (
-    <span className={`transition-all duration-600 ease-linear bg-clip-text text-transparent bg-gradient-to-r ${gradientOne} ${gradientTwo} dark:from-purple-600 dark:to-indigo-900
+    <span className={`transition-all duration-600 ease-in-out bg-clip-text text-transparent bg-gradient-to-r ${gradientOne} ${gradientTwo} dark:from-purple-600 dark:to-indigo-900
     ${currentProgress > lowerLimit && 'drop-shadow-[0rem_0.2rem_0.2rem_#34d399] dark:drop-shadow-[0rem_0.15rem_0.15rem_#312e81]'}`}>
       {children}
     </span>
