@@ -14,7 +14,7 @@ export const variants = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <main className="bg-rose-50 dark:bg-neutral-900 dark:text-white min-h-screen max-w-screen">
+    <div className="bg-rose-50 dark:bg-black dark:text-white min-h-screen max-w-screen">
       <div className="relative min-h-screen md:w-[50vw] mx-auto w-[80vw] pb-4">
         <Navbar />
         <AnimatePresence>
@@ -22,7 +22,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         </AnimatePresence>
         <Footer />
       </div>
-    </main>
+    </div>
   );
 };
 
