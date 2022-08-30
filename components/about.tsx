@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { ScrollContext } from "../utils/observer";
 import Link from "next/link";
 
@@ -6,25 +6,14 @@ type SpanProps = {
 	children: React.ReactNode;
 	progress: number;
 	lowerLimit: number;
-	gradientOne: string;
-	gradientTwo: string;
 };
 
-const Span: React.FC<SpanProps> = ({
-	children,
-	progress,
-	lowerLimit,
-	gradientOne,
-	gradientTwo,
-}) => {
+const Span: React.FC<SpanProps> = ({ children, progress, lowerLimit }) => {
 	let currentProgress = progress;
 	return (
 		<span
-			className={`transition-all duration-600 ease-in-out bg-clip-text text-transparent bg-gradient-to-r ${gradientOne} ${gradientTwo} dark:from-purple-600 dark:to-indigo-900
-    ${
-			currentProgress > lowerLimit &&
-			"drop-shadow-[0rem_0.2rem_0.2rem_#34d399] dark:drop-shadow-[0rem_0.18rem_0.18rem_#312e81]"
-		}`}
+			className={`transition-color duration-300 ease-in-out text-black dark:text-white
+			${currentProgress >= lowerLimit && "text-cyan-500 dark:text-indigo-700"}`}
 		>
 			{children}
 		</span>
@@ -46,31 +35,25 @@ const About: React.FC = () => {
 	return (
 		<div ref={refContainer} className='pt-6'>
 			<h1 className='transition min-h-fit text-7xl font-bold py-12'>
-				<Span
-					progress={progress}
-					lowerLimit={-1}
-					gradientOne='from-emerald-400'
-					gradientTwo='to-cyan-600'
-				>
-					Hi Stranger,{" "}
+				<Span progress={progress} lowerLimit={0}>
+					Hi{" "}
+				</Span>
+				<Span progress={progress} lowerLimit={1}>
+					Stranger,
 				</Span>
 				<br />
-				<Span
-					progress={progress}
-					lowerLimit={1}
-					gradientOne='from-emerald-400'
-					gradientTwo='to-cyan-600'
-				>
-					This is
+				<Span progress={progress} lowerLimit={2}>
+					This{" "}
+				</Span>
+				<Span progress={progress} lowerLimit={3}>
+					is
 				</Span>
 				<br />
-				<Span
-					progress={progress}
-					lowerLimit={3}
-					gradientOne='from-emerald-400'
-					gradientTwo='to-cyan-600'
-				>
-					Luv Makin
+				<Span progress={progress} lowerLimit={4}>
+					Luv{" "}
+				</Span>
+				<Span progress={progress} lowerLimit={5}>
+					Makin
 				</Span>
 			</h1>
 			<h3 className='font-bold tracking-wide text-lg pt-6 border-b-4 w-fit border-zinc-500'>

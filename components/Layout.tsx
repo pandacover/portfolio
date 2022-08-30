@@ -1,7 +1,6 @@
-import React, { createContext } from "react";
 import Navbar from "./navbar";
 import Footer from "./footer";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 interface Props {
 	children: React.ReactNode;

@@ -4,22 +4,21 @@ import ScrollObserver from "../utils/observer";
 import dynamic from "next/dynamic";
 import { Loader } from "../components";
 import { Suspense } from "react";
-import { AnimatePresence } from "framer-motion";
 
 const LazyLayout = dynamic(() => import("../components/Layout"), {
-  suspense: true,
+	suspense: true,
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ScrollObserver>
-      <Suspense fallback={<Loader />}>
-        <LazyLayout>
-          <Component {...pageProps} />
-        </LazyLayout>
-      </Suspense>
-    </ScrollObserver>
-  );
+	return (
+		<ScrollObserver>
+			<Suspense fallback={<Loader />}>
+				<LazyLayout>
+					<Component {...pageProps} />
+				</LazyLayout>
+			</Suspense>
+		</ScrollObserver>
+	);
 }
 
 export default MyApp;
