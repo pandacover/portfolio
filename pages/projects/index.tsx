@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import NewHead from "../../utils/head";
+import Meta from "../../utils/head";
 import { motion } from "framer-motion";
 import { variants } from "../../components/Layout";
 
@@ -66,6 +66,7 @@ const Card: React.FC<PropTypes> = ({ link, imgSrc, title, desc }) => {
 						src={imgSrc}
 						alt='One of my project'
 						layout='fill'
+						priority
 					/>
 				</figure>
 				<div className='rounded-b-md p-2 h-28 bg-gradient-to-r from-indigo-400 to-indigo-600 dark:from-indigo-800 dark:to-indigo-900 text-white'>
@@ -85,7 +86,7 @@ const Projects: NextPage = () => {
 			initial='initial'
 			animate='animate'
 		>
-			<NewHead title='Projects' />
+			<Meta title='Projects' />
 			<h1 className='font-bold text-xl pb-[2px] border-b-4 border-gray-400 w-fit'>
 				My Personal Projects
 			</h1>

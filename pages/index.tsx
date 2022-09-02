@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { About, Bio, Online } from "../components";
 import { motion } from "framer-motion";
 import { variants } from "../components/Layout";
-import NewHead from "../utils/head";
+import Meta from "../utils/head";
 
 const Home: NextPage = () => {
 	return (
@@ -12,7 +12,7 @@ const Home: NextPage = () => {
 			initial='initial'
 			animate='animate'
 		>
-			<NewHead title='Home' />
+			<Meta title='Home' />
 			<About />
 			<Bio />
 			<Online />
