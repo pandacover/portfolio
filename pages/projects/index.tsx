@@ -3,19 +3,20 @@ import Image from "next/image";
 import Meta from "../../utils/head";
 import { motion } from "framer-motion";
 import { variants } from "../../components/Layout";
+import Link from "next/link";
 
 export const Works = [
 	{
 		id: "-project-item-1",
 		image: "/assets/-pandacover-voidlist.png",
-		title: "VoidList",
+		title: "Void List",
 		desc: "A todo list app with user authentication and user friendly UI",
 		link: "https://voidtodo.herokuapp.com/",
 	},
 	{
 		id: "-project-item-2",
 		image: "/assets/-pandacover-goalsetter.png",
-		title: "GoalSetter",
+		title: "Goal Setter",
 		desc: "A goal setting app with user authentication and goal tracking feature.",
 		link: "https://goalsetterluv.herokuapp.com/",
 	},
@@ -57,23 +58,26 @@ type PropTypes = {
 };
 
 const Card: React.FC<PropTypes> = ({ link, imgSrc, title, desc }) => {
+	let href = `/projects/${title}`;
 	return (
 		<li className='mb-4'>
-			<a className='group' target='_blank' rel='noreferrer' href={link}>
-				<figure className='relative w-full h-36 flex'>
-					<Image
-						className='object-cover ounded-lg group-hover:scale-110 transition'
-						src={imgSrc}
-						alt='One of my project'
-						layout='fill'
-						priority
-					/>
-				</figure>
-				<div className='rounded-b-md p-2 h-28 bg-gradient-to-r from-indigo-400 to-indigo-600 dark:from-indigo-800 dark:to-indigo-900 text-white'>
-					<h1 className='text-xl font-medium py-2'>{title}</h1>
-					<p className='text-sm'>{desc}</p>
-				</div>
-			</a>
+			<Link href='/projects/[slug]' passHref as={href}>
+				<a className='group'>
+					<figure className='relative w-full h-36 flex'>
+						<Image
+							className='object-cover ounded-lg group-hover:scale-110 transition'
+							src={imgSrc}
+							alt='One of my project'
+							layout='fill'
+							priority
+						/>
+					</figure>
+					<div className='rounded-b-md p-2 h-28 bg-gradient-to-r from-indigo-400 to-indigo-600 dark:from-indigo-800 dark:to-indigo-900 text-white'>
+						<h1 className='text-xl font-medium py-2'>{title}</h1>
+						<p className='text-sm'>{desc}</p>
+					</div>
+				</a>
+			</Link>
 		</li>
 	);
 };
