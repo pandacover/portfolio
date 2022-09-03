@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { variants } from "./Layout";
 import { motion } from "framer-motion";
+import Meta from "../utils/head";
 
 type Props = {
   title: string;
@@ -26,6 +27,7 @@ const Project: React.FC<Props> = ({
       initial="initial"
       className="min-w-full min-h-screen px-2"
     >
+      <Meta title={title} />
       <Link href="/projects" passHref>
         <a
           className="my-8 flex items-center height-fit gap-2 pointer-cursor"
