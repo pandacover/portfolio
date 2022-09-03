@@ -69,7 +69,7 @@ const Projects: ProjectType = [
   },
   {
     id: "5",
-    name: "Pokémon Wiki",
+    name: "Pokemon Wiki",
     details:
       "A Wiki page for the famous T.V. show and game Pokémon. Created with Html and Css. The website is fully responsive with mobiles too.",
     live: "https://pokemon-wiki-pandacover.netlify.app/",
