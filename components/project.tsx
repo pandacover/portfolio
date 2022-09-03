@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BsArrowRight } from "react-icons/bs";
+import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { variants } from "./Layout";
 import { motion } from "framer-motion";
 
@@ -26,7 +26,15 @@ const Project: React.FC<Props> = ({
       initial="initial"
       className="min-w-full min-h-screen px-2"
     >
-      <h1 className="text-7xl font-bold pt-8">{title}</h1>
+      <Link href="/projects" passHref>
+        <a
+          className="my-8 flex items-center height-fit gap-2 pointer-cursor"
+          onClick={(e) => e.currentTarget.classList.add("animate-ping")}
+        >
+          {<BsArrowLeft />} Back
+        </a>
+      </Link>
+      <h1 className="text-7xl font-bold">{title}</h1>
       <div className="py-4">
         <Image src={imageSrc} alt={title} width={1000} height={468} priority />
       </div>
