@@ -5,15 +5,7 @@ import { IoMdMoon } from "react-icons/io";
 import { ScrollContext } from "../utils/observer";
 import { motion } from "framer-motion";
 
-interface ItemsInterface {
-	id: string;
-	name: string;
-	link: string;
-}
-
-type ItemsType = Array<ItemsInterface>;
-
-const NavbarItems: ItemsType = [
+const NavbarItems = [
 	{ id: "-nav-item-1", name: "Projects", link: "/projects" },
 	{ id: "-nav-items-2", name: "Contact", link: "/contact" },
 	{
@@ -23,7 +15,7 @@ const NavbarItems: ItemsType = [
 	},
 ];
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
 	const [darkMode, setDarkMode] = useState(false);
 	const { scrollY } = useContext(ScrollContext);
 	const toggleTheme = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

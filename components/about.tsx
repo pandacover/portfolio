@@ -8,7 +8,7 @@ type SpanProps = {
 	lowerLimit: number;
 };
 
-const Span: React.FC<SpanProps> = ({ children, progress, lowerLimit }) => {
+const Span = ({ children, progress, lowerLimit }: SpanProps) => {
 	let currentProgress = progress;
 	return (
 		<span
@@ -20,7 +20,7 @@ const Span: React.FC<SpanProps> = ({ children, progress, lowerLimit }) => {
 	);
 };
 
-const About: React.FC = () => {
+const About = () => {
 	const { scrollY } = useContext(ScrollContext);
 	const collegeURL = "https://www.chitkara.edu.in/";
 	const leetcodeURL = "https://www.leetcode.com/luvmakin";
@@ -76,13 +76,14 @@ const About: React.FC = () => {
 						Leetcode
 					</a>
 				</Link>
-				. Whenever I&apos;m not coding, I love reading light-novels, playing
-				games and/or listening to music.
+				{
+					". Whenever I'm not coding, I love reading light-novels, playing games and/or listening to music."
+				}
 			</p>
 			<p className='pt-8'>
 				<span className='text-lg opacity-50'>
-					&#34;That&apos;s enough about me&#34;{" "}
-					<em className='text-sm'>Pun intended</em>
+					{`"That's enough about me "`}{" "}
+					<em className='text-sm'>Pun intended </em>
 				</span>
 				<span>- Luv Makin, 2022</span>
 			</p>

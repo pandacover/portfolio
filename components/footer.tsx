@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Footer: React.FC = () => {
+const Footer = () => {
 	const youtubeURL = "https://www.youtube.com/devaslife";
 	return (
 		<footer className='h-16 mt-12 w-full'>

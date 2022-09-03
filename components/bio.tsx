@@ -1,12 +1,10 @@
-interface ListInterface {
+type ListType = {
 	id: string;
 	date: string;
 	details: string;
-}
+};
 
-type ListType = Array<ListInterface>;
-
-const BioList: ListType = [
+const BioList: ListType[] = [
 	{ id: "-bio-item-1", date: "2001", details: "Born to my parents" },
 	{
 		id: "-bio-item-2",
@@ -22,7 +20,7 @@ const BioList: ListType = [
 	},
 ];
 
-const Bio: React.FC = () => {
+const Bio = () => {
 	return (
 		<div className='pt-8'>
 			<h1 className='text-xl font-bold tracking-wide border-b-4 border-zinc-500 w-fit'>

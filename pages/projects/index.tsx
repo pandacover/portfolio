@@ -57,7 +57,7 @@ type PropTypes = {
 	desc: string;
 };
 
-const Card: React.FC<PropTypes> = ({ link, imgSrc, title, desc }) => {
+const Card = ({ link, imgSrc, title, desc }: PropTypes) => {
 	let href = `/projects/${title}`;
 	return (
 		<li className='mb-4'>

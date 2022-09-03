@@ -5,13 +5,14 @@ import { SendEmail } from "../../utils/contact";
 import { motion, AnimatePresence } from "framer-motion";
 import Meta from "../../utils/head";
 import { variants as slideVariant } from "../../components/Layout";
+import { NextPage } from "next";
 
 const variants = {
 	hidden: { opacity: 0, scale: 0 },
 	visible: { opacity: 1, scale: 1 },
 };
 
-const Alert: React.FC = () => {
+const Alert = () => {
 	const [progress, setProgress] = useState(0);
 
 	useEffect(() => {
@@ -39,7 +40,7 @@ const Alert: React.FC = () => {
 	);
 };
 
-const Contact: React.FC = () => {
+const Contact: NextPage = () => {
 	const formRef = useRef(null);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isAlert, setIsAlert] = useState(false);

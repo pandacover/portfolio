@@ -2,16 +2,7 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import Link from "next/link";
 
-interface SocialInterface {
-	id: string;
-	name: string;
-	icon: any;
-	link: string;
-}
-
-type SocialType = Array<SocialInterface>;
-
-const Social: SocialType = [
+const Social = [
 	{
 		id: "-social-item-1",
 		name: "@pandacover",
@@ -32,7 +23,7 @@ const Social: SocialType = [
 	},
 ];
 
-const Online: React.FC = () => {
+const Online = () => {
 	return (
 		<div className='pt-8'>
 			<h1 className='text-xl font-bold tracking-wide border-b-4 border-zinc-500 w-fit'>

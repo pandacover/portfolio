@@ -9,7 +9,7 @@ const LazyLayout = dynamic(() => import("../components/Layout"), {
 	suspense: true,
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
 	return (
 		<ScrollObserver>
 			<Suspense fallback={<Loader />}>
@@ -19,6 +19,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 			</Suspense>
 		</ScrollObserver>
 	);
-}
+};
 
 export default MyApp;
