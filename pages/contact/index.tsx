@@ -61,23 +61,24 @@ const Contact: NextPage = () => {
 	};
 	return (
 		<motion.div
-			className='w-full h-full pt-8'
+			className='w-full h-full'
 			variants={slideVariant}
 			initial='initial'
 			animate='animate'
 		>
 			<Meta title='Contact' />
-			<div className='mt-12'>
+			<div className='mt-16'>
 				<AnimatePresence>{isAlert && <Alert />}</AnimatePresence>
-				<h1 className='text-xl font-bold border-b-4 w-fit dark:border-gray-400 border-black'>
-					Send me message!
+				<h1 className='text-6xl font-black w-fit dark:border-gray-400 border-black'>
+					<span className='text-emerald-600 dark:text-indigo-700'>Contact</span>{" "}
+					Me!
 				</h1>
 				<form
 					ref={formRef}
 					onSubmit={(e) => handleSubmit(e)}
-					className='pt-8 flex flex-col gap-4'
+					className='pt-12 flex flex-col gap-4'
 				>
-					<label className='sr-only' htmlFor='email'>
+					<label className='' htmlFor='email'>
 						Email
 					</label>
 					<input
@@ -89,9 +90,9 @@ const Contact: NextPage = () => {
 						required
 						placeholder='Type your email here...'
 						maxLength={100}
-						className='bg-transparent dark:text-white p-2'
+						className='bg-opacity-10 dark:bg-opacity-10 bg-gray-600 dark:bg-white dark:text-white p-2'
 					/>
-					<label className='sr-only' htmlFor='message'>
+					<label className='' htmlFor='message'>
 						Message
 					</label>
 					<textarea
@@ -102,7 +103,7 @@ const Contact: NextPage = () => {
 						id='message'
 						placeholder='Type your message here...'
 						maxLength={300}
-						className='bg-transparent dark:text-white p-2 h-32 resize-none'
+						className='bg-gray-600 dark:bg-white bg-opacity-10 dark:bg-opacity-10 b bg-transparent dark:text-white p-2 h-32 resize-none'
 					/>
 					<button
 						type='submit'

@@ -17,7 +17,8 @@ const NavbarItems = [
 
 const Navbar = () => {
 	const [darkMode, setDarkMode] = useState(false);
-	const { scrollY } = useContext(ScrollContext);
+	const { scrollY = 0 } = useContext(ScrollContext);
+
 	const toggleTheme = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		e.preventDefault();
 		setDarkMode(!darkMode);
@@ -43,8 +44,8 @@ const Navbar = () => {
 			variants={variants}
 			animate='animate'
 			initial='initial'
-			className={`z-[999] w-[110%] ml-[-5%] h-12 top-0 sticky flex flex-wrap items-center text-black transition-all
-    dark:text-white bg-[#0001] dark:bg-[#fff1] px-5 md:px-[6%] rounded-bl-xl rounded-br-xl backdrop-blur-md
+			className={`z-[999] w-[110%] ml-[-5%] h-14 top-0 sticky flex flex-wrap items-center text-black transition-all
+    dark:text-white bg-[#0001] dark:bg-[#fff1] px-5 md:px-[6%] rounded-b-[.6rem] backdrop-blur-md
     ${scrollY > 250 ? "dark:bg-black bg-rose-100" : ""}`}
 		>
 			<ul className='flex flex-[2] gap-2 h-full items-center'>

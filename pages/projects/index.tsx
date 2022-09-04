@@ -1,9 +1,8 @@
 import { NextPage } from "next";
-import Image from "next/image";
 import Meta from "../../utils/head";
 import { motion } from "framer-motion";
 import { variants } from "../../components/Layout";
-import Link from "next/link";
+import { Card } from "../../components";
 
 export const Works = [
 	{
@@ -50,51 +49,19 @@ export const Works = [
 	},
 ];
 
-type PropTypes = {
-	link: string;
-	imgSrc: string;
-	title: string;
-	desc: string;
-};
-
-const Card = ({ link, imgSrc, title, desc }: PropTypes) => {
-	let href = `/projects/${title}`;
-	return (
-		<li className='mb-4'>
-			<Link href='/projects/[slug]' passHref as={href}>
-				<a className='group'>
-					<figure className='relative w-full h-36 flex'>
-						<Image
-							className='object-cover ounded-lg group-hover:scale-110 transition'
-							src={imgSrc}
-							alt='One of my project'
-							layout='fill'
-							priority
-						/>
-					</figure>
-					<div className='rounded-b-md p-2 h-28 bg-gradient-to-r from-indigo-400 to-indigo-600 dark:from-indigo-800 dark:to-indigo-900 text-white'>
-						<h1 className='text-xl font-medium py-2'>{title}</h1>
-						<p className='text-sm'>{desc}</p>
-					</div>
-				</a>
-			</Link>
-		</li>
-	);
-};
-
 const Projects: NextPage = () => {
 	return (
 		<motion.div
-			className='w-full h-full pt-8 mt-8'
+			className='w-full h-full mt-16'
 			variants={variants}
 			initial='initial'
 			animate='animate'
 		>
 			<Meta title='Projects' />
-			<h1 className='font-bold text-xl pb-[2px] border-b-4 border-gray-400 w-fit'>
-				My Personal Projects
+			<h1 className='font-black text-6xl pb-8 w-fit'>
+				My <span className='text-cyan-500 dark:text-indigo-700'>Projects</span>
 			</h1>
-			<ul className='grid grid-cols-1 md:grid-cols-2 gap-6 pt-8'>
+			<ul className='mt-8 flex flex-wrap gap-6'>
 				{Works.map((item) => (
 					<Card
 						key={item.id}

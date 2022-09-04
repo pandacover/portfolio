@@ -21,7 +21,7 @@ const Span = ({ children, progress, lowerLimit }: SpanProps) => {
 };
 
 const About = () => {
-	const { scrollY } = useContext(ScrollContext);
+	const { scrollY = 0 } = useContext(ScrollContext);
 	const collegeURL = "https://www.chitkara.edu.in/";
 	const leetcodeURL = "https://www.leetcode.com/luvmakin";
 	const refContainer = useRef<HTMLDivElement>(null);
