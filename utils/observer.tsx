@@ -1,17 +1,16 @@
 import React, { useEffect, useState, useCallback, createContext } from "react";
 
-type ObserveType = {
-	scrollY?: number;
-	children?: React.ReactNode;
+type ContextType = {
+	scrollY: number;
 };
 
-export const ScrollContext = createContext<ObserveType>({ scrollY: 0 });
+export const ScrollContext = createContext<ContextType>({ scrollY: 0 });
 
-interface Props {
+interface PropsType {
 	children: React.ReactNode;
 }
 
-const ScrollObserver = ({ children }: ObserveType) => {
+const ScrollObserver = ({ children }: PropsType) => {
 	const [scrollY, setScrollY] = useState(0);
 	const observe = useCallback(() => {
 		setScrollY(window.scrollY);

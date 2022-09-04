@@ -17,7 +17,7 @@ const NavbarItems = [
 
 const Navbar = () => {
 	const [darkMode, setDarkMode] = useState(false);
-	const { scrollY = 0 } = useContext(ScrollContext);
+	const { scrollY } = useContext(ScrollContext);
 
 	const toggleTheme = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		e.preventDefault();
