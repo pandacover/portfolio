@@ -12,8 +12,12 @@ const Span = ({ children, progress, lowerLimit }: SpanProps) => {
 	let currentProgress = progress;
 	return (
 		<span
-			className={`transition-color duration-300 ease-in-out text-black dark:text-white
-			${currentProgress >= lowerLimit && "text-cyan-500 dark:text-indigo-700"}`}
+			className={`transition-color duration-300 ease-in-out 
+			${
+				currentProgress >= lowerLimit
+					? "text-cyan-500 dark:text-indigo-700"
+					: "text-black dark:text-white"
+			}`}
 		>
 			{children}
 		</span>
