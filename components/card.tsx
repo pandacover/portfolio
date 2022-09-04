@@ -11,7 +11,7 @@ type PropTypes = {
 export default function Card({ imgSrc, title, desc }: PropTypes) {
 	let href = `/projects/${title}`;
 	return (
-		<li className='mb-4 flex-[230px]'>
+		<li className='mb-4 w-full'>
 			<Link href='/projects/[slug]' passHref as={href}>
 				<a className='group relative'>
 					<div>

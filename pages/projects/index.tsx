@@ -61,7 +61,7 @@ const Projects: NextPage = () => {
 			<h1 className='font-black text-6xl pb-8 w-fit'>
 				My <span className='text-cyan-500 dark:text-indigo-700'>Projects</span>
 			</h1>
-			<ul className='mt-8 flex flex-wrap gap-6'>
+			<ul className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-6'>
 				{Works.map((item) => (
 					<Card
 						key={item.id}
