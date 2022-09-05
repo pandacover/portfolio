@@ -64,8 +64,9 @@ const Projects: NextPage = () => {
 			<ul className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-6'>
 				{Works.map((item) => (
 					<Card
+						link={item.title}
+						parentUrl='/projects'
 						key={item.id}
-						link={item.link}
 						imgSrc={item.image}
 						title={item.title}
 						desc={item.desc}

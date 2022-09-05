@@ -10,8 +10,8 @@ const NavbarItems = [
 	{ id: "-nav-items-2", name: "Contact", link: "/contact" },
 	{
 		id: "-nav-items-3",
-		name: "Source",
-		link: "https://github.com/pandacover/portfolio-v3",
+		name: "Blogs",
+		link: "/blogs",
 	},
 ];
 

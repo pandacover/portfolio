@@ -1,3 +1,7 @@
+import { H1, H2, P } from "./styled";
+import { motion } from "framer-motion";
+import { variants } from "./Layout";
+
 type PropsType = {
 	title: string;
 	subtitle?: string[];
@@ -12,14 +16,19 @@ export default function Blogs({
 	image = ["image"],
 }: PropsType) {
 	return (
-		<article className='prose lg:prose-xl'>
-			<h1>{title}</h1>
+		<motion.article
+			className='prose lg:prose-xl mt-12'
+			initial='initial'
+			animate='animate'
+			variants={variants}
+		>
+			<H1>{title}</H1>
 			{subtitle.map((item: string, idx: number) => (
 				<section key={idx}>
-					<h2 className='underline'>{item}</h2>
-					<p>{content[idx]}</p>
+					<H2 classname='underline'>{item}</H2>
+					<P>{content[idx]}</P>
 				</section>
 			))}
-		</article>
+		</motion.article>
 	);
 }
