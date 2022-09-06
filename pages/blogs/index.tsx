@@ -16,7 +16,7 @@ export const BlogItem = [
 export default function Blogs() {
 	return (
 		<motion.div
-			className='mt-8'
+			className='mt-8 w-full h-full'
 			initial='initial'
 			animate='animate'
 			variants={variants}
