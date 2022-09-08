@@ -3,44 +3,44 @@ import { motion } from "framer-motion";
 import { variants } from "./Layout";
 import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
+import ParseMarkdown from "../utils/parseMarkdown";
+import Meta from "../utils/head";
 
 type PropsType = {
 	title: string;
-	subtitle?: string[];
-	content?: string[];
-	image?: string[];
+	content: string;
+	date: string;
+	slug: string;
+	author: string;
 };
 
 export default function Blogs({
 	title = "Title",
-	subtitle = ["Subtitle"],
-	content = ["content"],
-	image = ["image"],
+	content = "Content",
+	date = "Not Mentioned",
+	author = "Luv Makin",
+	slug = "404",
 }: PropsType) {
 	return (
 		<motion.article
-			className='prose lg:prose-xl mt-12 relative'
+			className='prose lg:prose-xl dark:prose-invert mt-12 relative'
 			initial='initial'
 			animate='animate'
 			variants={variants}
 		>
+			<Meta>{title}</Meta>
 			<Link href='/blogs' passHref>
 				<a
-					className='my-8 flex items-center height-fit gap-2 pointer-cursor dark:text-white text-[1rem]'
+					className='my-8 flex items-center height-fit gap-2 pointer-cursor text-[1rem]'
 					onClick={(e) => e.currentTarget.classList.add("animate-ping")}
 				>
 					{<BsArrowLeft />} Back
 				</a>
 			</Link>
 			<H1>{title}</H1>
-			{subtitle.map((item: string, idx: number) => (
-				<section key={idx}>
-					<H2 classname='underline'>{item}</H2>
-					<P>{content[idx]}</P>
-				</section>
-			))}
-			<p className='text-right dark:text-white'>
-				<span className='text'>Author</span> - <span>Luv Makin </span>
+			<ParseMarkdown content={content} />
+			<p className='text-right'>
+				{author} - {date}
 			</p>
 		</motion.article>
 	);

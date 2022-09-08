@@ -46,7 +46,7 @@ const Navbar = () => {
 			initial='initial'
 			className={`z-[999] w-[110%] ml-[-5%] h-14 top-0 sticky flex flex-wrap items-center text-black transition-all
     dark:text-white bg-[#0001] dark:bg-[#fff1] px-5 md:px-[6%] rounded-b-[.6rem] backdrop-blur-md
-    ${scrollY > 280 ? "dark:bg-[#000] bg-rose-100" : ""}`}
+    ${scrollY > 280 ? "dark:bg-[#000] bg-gray-300" : ""}`}
 		>
 			<ul className='flex flex-[2] gap-2 h-full items-center'>
 				<li className='mr-4 group'>

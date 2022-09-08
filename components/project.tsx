@@ -21,7 +21,7 @@ const Project = ({ title, content, liveHref, sourceHref, imageSrc }: Props) => {
 			initial='initial'
 			className='min-w-full min-h-screen px-2'
 		>
-			<Meta title={title} />
+			<Meta>{title}</Meta>
 			<Link href='/projects' passHref>
 				<a
 					className='my-8 flex items-center height-fit gap-2 pointer-cursor'

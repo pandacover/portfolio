@@ -1,12 +1,12 @@
 import { NextPage } from "next";
-import { Projects, Project } from "../../components";
+import { Projects, Project, Loader } from "../../components";
 
 export const getStaticPaths = async () => {
 	try {
-		const paths = Projects.map((project) => {
+		const paths = Object.keys(Projects).map((key) => {
 			return {
 				params: {
-					slug: project.name,
+					slug: Projects[key].name,
 				},
 			};
 		});
@@ -22,7 +22,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: any) => {
 	try {
 		const id = context.params.slug;
-		const data = Projects.filter((project) => project.name == id)[0];
+		const data = Projects[id];
 
 		return {
 			props: { project: data },

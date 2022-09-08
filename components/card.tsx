@@ -4,17 +4,23 @@ import Image from "next/image";
 type PropTypes = {
 	link: string;
 	parentUrl: string;
-	imgSrc: string;
+	imgSrc?: string;
 	title: string;
 	desc: string;
+	author?: string;
+	date?: string;
+	type: string;
 };
 
 export default function Card({
-	imgSrc,
+	imgSrc = "/assets/-pandacover-blog.jpg",
 	title,
 	desc,
 	parentUrl,
 	link,
+	type,
+	date,
+	author,
 }: PropTypes) {
 	const href = parentUrl + "/" + link;
 	return (
@@ -37,14 +43,23 @@ export default function Card({
 					</div>
 					<article
 						className='px-4 py-2 min-w-full min-h-full 
-						rounded-b-md font-mono text-[14px] '
+						rounded-b-md  text-[14px] '
 					>
 						<section className='py-2'>
 							<h1 className='text-gray-600'>Name</h1>
 							<p>{title}</p>
 						</section>
 						<div className='h-[2px] bg-gray-400 w-full rounded-xl' />
-						<p className='pt-2'>{desc}</p>
+						<section>
+							<p className='pt-2 text-ellipsis overflow-hidden whitespace-nowrap'>
+								{desc}
+							</p>
+							{type === "blog" && (
+								<p className='opacity-75'>
+									{author} - {date}
+								</p>
+							)}
+						</section>
 					</article>
 				</a>
 			</Link>

@@ -66,7 +66,7 @@ const Contact: NextPage = () => {
 			initial='initial'
 			animate='animate'
 		>
-			<Meta title='Contact' />
+			<Meta>Contact</Meta>
 			<div className='mt-16'>
 				<AnimatePresence>{isAlert && <Alert />}</AnimatePresence>
 				<h1 className='text-6xl font-black w-fit dark:border-gray-400 border-black'>

@@ -12,7 +12,7 @@ const Home: NextPage = () => {
 			initial='initial'
 			animate='animate'
 		>
-			<Meta title='Home' />
+			<Meta>Home</Meta>
 			<About />
 			<Bio />
 			<Online />

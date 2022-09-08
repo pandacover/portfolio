@@ -1,47 +1,62 @@
-import { BlogItem } from "./";
 import { Blog } from "../../components";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 export async function getStaticPaths() {
-	try {
-		const paths = BlogItem.map((blog) => {
-			return {
-				params: {
-					slug: blog.link,
-				},
-			};
-		});
+	const files = fs.readdirSync(path.join("public", "blogs"));
+	const paths = files.map((filename) => {
+		const slug = filename.replace(".md", "");
 		return {
-			paths,
-			fallback: false,
+			params: {
+				slug,
+			},
 		};
-	} catch (error) {
-		console.error(error);
-	}
+	});
+
+	return {
+		paths,
+		fallback: false,
+	};
 }
 
 export async function getStaticProps(context: any) {
-	try {
-		const id = context.params.slug;
-		const data = BlogItem.filter((blog) => blog.link == id)[0];
-		return {
-			props: { blog: data },
-		};
-	} catch (error) {
-		console.log(error);
-	}
+	const mardownWithMeta = fs.readFileSync(
+		path.join("public", "blogs", context.params.slug + ".md"),
+		"utf-8"
+	);
+	const { data: frontmatter, content } = matter(mardownWithMeta);
+	return {
+		props: {
+			frontmatter,
+			slug: context.params.slug,
+			content,
+		},
+	};
 }
 
 type Props = {
-	blog: {
-		link: string;
+	frontmatter: {
 		title: string;
-		subtitle: string[];
-		content: string[];
+		date: string;
+		author: string;
 	};
+	slug: string;
+	content: string;
 };
 
 export default function BlogPage({
-	blog: { title, subtitle, content, link },
+	frontmatter: { title, date, author },
+	slug,
+	content,
 }: Props) {
-	return <Blog title={title} subtitle={subtitle} content={content} />;
+	return (
+		<Blog
+			title={title}
+			content={content}
+			date={date}
+			slug={slug}
+			author={author}
+		/>
+	);
 }

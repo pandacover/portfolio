@@ -1,5 +1,17 @@
-const Projects = [
-	{
+type ProjectType = {
+	[key: string]: {
+		id: string;
+		name: string;
+		details: string;
+		live: string;
+		source: string;
+		tech: string[];
+		image: string;
+		desc: string;
+	};
+};
+const Projects: ProjectType = {
+	"Void List": {
 		id: "1",
 		name: "Void List",
 		details:
@@ -14,9 +26,10 @@ const Projects = [
 			"Redux",
 			"Tailwindcss",
 		],
+		desc: "A todo list app with user authentication and user friendly UI",
 		image: "/assets/-pandacover-voidlist.png",
 	},
-	{
+	"Goal Setter": {
 		id: "2",
 		name: "Goal Setter",
 		details:
@@ -24,28 +37,31 @@ const Projects = [
 		live: "https://goalsetterluv.herokuapp.com/",
 		source: "https://github.com/pandacover/goalsetter",
 		tech: ["React.js", "Node.js", "Express.js", "MongoDb", "Redux"],
+		desc: "A goal setting app with user authentication and goal tracking feature.",
 		image: "/assets/-pandacover-goalsetter.png",
 	},
-	{
+	"Expense Tracker": {
 		id: "3",
 		name: "Expense Tracker",
 		details:
 			"A React.js expense tracker to keep note of your credits and debits. It can also calculate your overall savings.",
 		live: "https://tracker-expense-pandacover.netlify.app/",
 		source: "https://github.com/pandacover/expense-tracker-react.git",
+		desc: "An app that track your expenses so you don't have to.",
 		tech: ["React.js", "Context API"],
 		image: "/assets/-pandacover-tracker.png",
 	},
-	{
+	"Swiggy Clone": {
 		id: "4",
 		name: "Swiggy Clone",
 		details: "A clone of Swiggy's website landing page made in React.js",
 		live: "https://swiggy-clone-edyst.netlify.app/",
 		source: "https://github.com/edyst/swiggy-landing-page-reactjs-pandacover",
+		desc: "Swiggy website's homepage clone website.",
 		image: "/assets/-pandacover-swiggy.png",
 		tech: ["React.js"],
 	},
-	{
+	Sudoku: {
 		id: "4",
 		name: "Sudoku",
 		details:
@@ -53,9 +69,10 @@ const Projects = [
 		live: "https://sudoku-pandacover.netlify.app/",
 		source: "https://github.com/edyst/sudoku-edyst-pandacover",
 		image: "/assets/-pandacover-sudoku.png",
+		desc: "A simple sudoku game with validation option.",
 		tech: ["HTML", "CSS", "JavaScript"],
 	},
-	{
+	"Pokemon Wiki": {
 		id: "5",
 		name: "Pokemon Wiki",
 		details:
@@ -63,8 +80,9 @@ const Projects = [
 		live: "https://pokemon-wiki-pandacover.netlify.app/",
 		source: "https://github.com/edyst/pokemon-wiki-edyst-pandacover",
 		tech: ["HTML", "CSS"],
+		desc: "Pokemon wiki website.",
 		image: "/assets/-pandacover-pokemon.png",
 	},
-];
+};
 
 export default Projects;
