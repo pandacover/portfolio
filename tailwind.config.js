@@ -14,7 +14,7 @@ module.exports = {
 				},
 			},
 			animation: {
-				spreadBottom: "spreadBottom 300ms linear 0s forwards",
+				"spread-bottom": "spreadBottom 300ms linear 0s forwards",
 			},
 		},
 	},

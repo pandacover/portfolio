@@ -1,9 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
+import { ScrollContext } from "../../../lib/scroll-observer";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 import { HiOutlineSun } from "react-icons/hi";
 import { IoMdMoon } from "react-icons/io";
-import { ScrollContext } from "../utils/observer";
-import { motion } from "framer-motion";
 
 const NavbarItems = [
 	{ id: "-nav-item-1", name: "Projects", link: "/projects" },
@@ -18,6 +20,7 @@ const NavbarItems = [
 const Navbar = () => {
 	const [darkMode, setDarkMode] = useState(false);
 	const { scrollY } = useContext(ScrollContext);
+	const router = useRouter();
 
 	const toggleTheme = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		e.preventDefault();
@@ -44,8 +47,7 @@ const Navbar = () => {
 			variants={variants}
 			animate='animate'
 			initial='initial'
-			className={`z-[999] w-[110%] ml-[-5%] h-14 top-0 sticky flex flex-wrap items-center text-black transition-all
-    dark:text-white bg-[#0001] dark:bg-[#fff1] px-5 md:px-[6%] rounded-b-[.6rem] backdrop-blur-md
+			className={`z-[999] w-[110%] ml-[-5%] h-14 top-0 sticky flex flex-wrap items-center transition-all bg-[#0001] dark:bg-[#fff1] px-5 md:px-[6%] rounded-b-[.6rem] backdrop-blur-md
     ${scrollY > 280 ? "dark:bg-[#000] bg-gray-300" : ""}`}
 		>
 			<ul className='flex flex-[2] gap-2 h-full items-center'>
@@ -53,19 +55,35 @@ const Navbar = () => {
 					<Link href='/' passHref>
 						<a className='font-semibold'>
 							L
-							<span className='text-blue-500 group-hover:text-blue-300 transition-all'>
+							<span
+								className='text-blue-500 hover:opacity-60'
+								style={
+									router.asPath === "/" ? {} : { color: "rgba(239 68 68)" }
+								}
+							>
 								M
 							</span>
 						</a>
 					</Link>
 				</li>
-				{NavbarItems.map(({ id, name, link }) => (
-					<li key={id} className='nav-link mr-2'>
-						<Link href={link}>
-							<a>{name}</a>
-						</Link>
-					</li>
-				))}
+				{NavbarItems.map(({ id, name, link }) => {
+					const regexLink = new RegExp(`${link}?[a-zA-Z]((/)[a-zA-Z]*)*`);
+					return (
+						<li
+							key={id}
+							className='nav-link mr-2'
+							style={
+								regexLink.test(router.asPath)
+									? {}
+									: { color: "rgba(113 112 113)" }
+							}
+						>
+							<Link href={link} passHref>
+								<a>{name}</a>
+							</Link>
+						</li>
+					);
+				})}
 			</ul>
 			<div className='flex justify-end flex-1'>
 				{darkMode ? (

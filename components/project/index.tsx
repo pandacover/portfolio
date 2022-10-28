@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
-import { variants } from "./Layout";
 import { motion } from "framer-motion";
-import Meta from "../utils/head";
+import { Head, Variant } from "../../lib";
 
 type Props = {
 	title: string;
@@ -16,12 +15,12 @@ type Props = {
 const Project = ({ title, content, liveHref, sourceHref, imageSrc }: Props) => {
 	return (
 		<motion.div
-			variants={variants}
+			variants={Variant("bounce")}
 			animate='animate'
 			initial='initial'
 			className='min-w-full min-h-screen px-2'
 		>
-			<Meta>{title}</Meta>
+			<Head>{title}</Head>
 			<Link href='/projects' passHref>
 				<a
 					className='my-8 flex items-center height-fit gap-2 pointer-cursor'

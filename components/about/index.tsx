@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import { ScrollContext } from "../utils/observer";
+import { ScrollContext } from "../../lib/scroll-observer";
 import Link from "next/link";
 
 type SpanProps = {

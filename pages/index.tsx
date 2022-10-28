@@ -1,18 +1,17 @@
 import type { NextPage } from "next";
 import { About, Bio, Online } from "../components";
 import { motion } from "framer-motion";
-import { variants } from "../components/Layout";
-import Meta from "../utils/head";
+import { Head, Variant } from "../lib";
 
 const Home: NextPage = () => {
 	return (
 		<motion.div
 			className='w-full h-full'
-			variants={variants}
+			variants={Variant("bounce")}
 			initial='initial'
 			animate='animate'
 		>
-			<Meta>Home</Meta>
+			<Head>Home</Head>
 			<About />
 			<Bio />
 			<Online />

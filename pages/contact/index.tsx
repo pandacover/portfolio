@@ -1,44 +1,9 @@
 import Link from "next/link";
 import React, { useRef, useState, useEffect } from "react";
-import { Loader } from "../../components";
-import { SendEmail } from "../../utils/contact";
 import { motion, AnimatePresence } from "framer-motion";
-import Meta from "../../utils/head";
-import { variants as slideVariant } from "../../components/Layout";
+import { SendEmail, Head, Loader, Variant } from "../../lib";
 import { NextPage } from "next";
-
-const variants = {
-	hidden: { opacity: 0, scale: 0 },
-	visible: { opacity: 1, scale: 1 },
-};
-
-const Alert = () => {
-	const [progress, setProgress] = useState(0);
-
-	useEffect(() => {
-		if (progress === 100) return;
-		const interval = setInterval(() => {
-			setProgress(progress + 1);
-		}, 50);
-		return () => clearInterval(interval);
-	}, [progress]);
-
-	return (
-		<motion.div
-			variants={variants}
-			initial='hidden'
-			animate='visible'
-			exit='hidden'
-			className='pb-4 w-fit h-fit bg-transparent text-green-600 dark:text-green-100 '
-		>
-			<span className='pb-2'>Done! Your message was sent</span>
-			<div
-				className='dark:bg-green-300 bg-green-500 h-[2px]'
-				style={{ width: `${progress}%` }}
-			/>
-		</motion.div>
-	);
-};
+import Alert from "./alert";
 
 const Contact: NextPage = () => {
 	const formRef = useRef(null);
@@ -62,11 +27,11 @@ const Contact: NextPage = () => {
 	return (
 		<motion.div
 			className='w-full h-full'
-			variants={slideVariant}
+			variants={Variant("bounce")}
 			initial='initial'
 			animate='animate'
 		>
-			<Meta>Contact</Meta>
+			<Head>Contact</Head>
 			<div className='mt-16'>
 				<AnimatePresence>{isAlert && <Alert />}</AnimatePresence>
 				<h1 className='text-6xl font-black w-fit dark:border-gray-400 border-black'>

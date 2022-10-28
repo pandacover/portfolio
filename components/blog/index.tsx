@@ -1,10 +1,8 @@
-import { H1, H2, P } from "./styled";
+import { H1 } from "../styled";
 import { motion } from "framer-motion";
-import { variants } from "./Layout";
 import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
-import ParseMarkdown from "../utils/parseMarkdown";
-import Meta from "../utils/head";
+import { ParseMarkdown, Head, Variant } from "../../lib";
 
 type PropsType = {
 	title: string;
@@ -26,9 +24,9 @@ export default function Blogs({
 			className='prose lg:prose-xl dark:prose-invert mt-12 relative'
 			initial='initial'
 			animate='animate'
-			variants={variants}
+			variants={Variant("bounce")}
 		>
-			<Meta>{title}</Meta>
+			<Head>{title}</Head>
 			<Link href='/blogs' passHref>
 				<a
 					className='my-8 flex items-center height-fit gap-2 pointer-cursor text-[1rem]'

@@ -1,10 +1,9 @@
 import { Card } from "../../components";
 import { motion } from "framer-motion";
-import { variants } from "../../components/Layout";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import Meta from "../../utils/head";
+import { Head, Variant } from "../../lib";
 
 type PostType = {
 	posts: {
@@ -25,9 +24,9 @@ export default function Blogs({ posts }: PostType) {
 			className='mt-8 w-full h-full'
 			initial='initial'
 			animate='animate'
-			variants={variants}
+			variants={Variant("bounce")}
 		>
-			<Meta>Blogs</Meta>
+			<Head>Blogs</Head>
 			<h1 className='text-6xl font-extrabold mb-12'>
 				My <span className='text-teal-600 dark:text-rose-400'>Blogs</span>
 			</h1>

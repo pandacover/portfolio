@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import ScrollObserver from "../utils/observer";
+import ScrollObserver from "../lib/scroll-observer";
 import { Layout } from "../components";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

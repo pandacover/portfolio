@@ -1,18 +1,17 @@
 import { NextPage } from "next";
-import Meta from "../../utils/head";
+import { Head, Variant } from "../../lib";
 import { motion } from "framer-motion";
-import { variants } from "../../components/Layout";
 import { Card, Projects as Work } from "../../components";
 
 const Projects: NextPage = () => {
 	return (
 		<motion.div
 			className='w-full h-full mt-16'
-			variants={variants}
+			variants={Variant("bounce")}
 			initial='initial'
 			animate='animate'
 		>
-			<Meta>Projects</Meta>
+			<Head>Projects</Head>
 			<h1 className='font-black text-6xl pb-8 w-fit'>
 				My <span className='text-cyan-500 dark:text-indigo-700'>Projects</span>
 			</h1>

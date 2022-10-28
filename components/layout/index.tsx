@@ -6,15 +6,6 @@ interface Props {
 	children: React.ReactNode;
 }
 
-export const variants = {
-	initial: { opacity: "0", y: "-100%" },
-	animate: {
-		opacity: "1",
-		y: "0",
-		transition: { delay: 0.1 },
-	},
-};
-
 const Layout = ({ children }: Props) => {
 	return (
 		<div className='bg-gray-200 dark:bg-[#212121] dark:text-white min-h-screen max-w-screen'>
