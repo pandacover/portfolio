@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { Projects, Project, Loader } from "../../components";
+import { Projects, Project } from "../../components";
 
 export const getStaticPaths = async () => {
 	try {

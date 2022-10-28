@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SendEmail, Head, Loader, Variant } from "../../lib";
 import { NextPage } from "next";
