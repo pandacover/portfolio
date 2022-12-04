@@ -6,7 +6,7 @@
 
 @layer components {
 	.nav-link {
-		@apply text-sm h-5/6 flex relative items-center after:absolute after:w-0 after:bottom-0 after:h-[2px] after:bg-zinc-500 hover:after:animate-spread-bottom;
+		@apply text-sm h-5/6 flex relative items-center after:absolute after:w-0 after:bottom-0 after:h-[2px] after:left-[calc(50%-2px)] after:bg-zinc-500 hover:after:animate-spread-bottom;
 	}
 
 	.emeraldGradientLeft {
@@ -30,7 +30,7 @@
 	}
 
 	.primary-btn {
-		@apply relative w-full h-full flex items-center justify-center rounded-sm text-white dark:bg-indigo-700 bg-emerald-600 hover:bg-emerald-400 dark:hover:bg-indigo-500 disabled:bg-gray-300 dark:disabled:bg-[#141414];
+		@apply relative w-full h-full flex items-center justify-center rounded-sm text-white dark:bg-indigo-700 dark:hover:bg-indigo-500 bg-emerald-600 hover:bg-emerald-400 disabled:bg-gray-300 dark:disabled:bg-[#141414];
 	}
 
 	.input {
@@ -44,14 +44,22 @@
 	body.dark .custom-loader {
 		@apply border-l-indigo-700 border-t-indigo-700;
 	}
+
+	.blog-container pre {
+		@apply text-sm whitespace-pre-wrap bg-black text-white;
+	}
+
+	.text-container {
+		@apply h-10 overflow-y-hidden text-ellipsis mb-[5px];
+		line-clamp: 2;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
 }
 
 body {
 	font-family: "Poppins", sans-serif;
-}
-
-.nav-link:after {
-	left: calc(50% - 2px);
 }
 
 ::-webkit-scrollbar {
@@ -60,15 +68,4 @@ body {
 
 ::-webkit-scrollbar-thumb {
 	background: #209;
-}
-
-.text-container {
-	height: 40px;
-	line-clamp: 2;
-	overflow-y: hidden;
-	display: -webkit-box;
-	text-overflow: ellipsis;
-	margin-bottom: 5px;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
 }

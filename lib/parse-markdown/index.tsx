@@ -1,11 +1,16 @@
-import { useEffect } from "react";
 import { useRemark } from "react-remark";
+import { useEffect } from "react";
 
-export default function useParseMarkdown({ content }: any) {
-	const [reactContent, setMarkdownSource] = useRemark();
+type componentProps = {
+	content: string;
+};
+
+export default function useParseMarkdown({ content }: componentProps) {
+	const [markdown, setMarkdown] = useRemark();
+
 	useEffect(() => {
-		setMarkdownSource(content);
-	}, [content, setMarkdownSource]);
+		setMarkdown(content);
+	}, [content, setMarkdown]);
 
-	return reactContent;
+	return markdown;
 }

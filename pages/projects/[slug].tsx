@@ -15,7 +15,7 @@ export const getStaticPaths = async () => {
 			fallback: false,
 		};
 	} catch (err) {
-		console.log(err);
+		console.error(err);
 	}
 };
 
@@ -28,7 +28,7 @@ export const getStaticProps = async (context: any) => {
 			props: { project: data },
 		};
 	} catch (err) {
-		console.log(err);
+		console.error(err);
 	}
 };
 

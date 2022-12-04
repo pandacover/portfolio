@@ -25,14 +25,33 @@ So first of all, we are using TailwindCSS's class based dark mode. It basically 
 For starters please head over to [TailwindCSS](https://tailwindcss.com/docs/installation/framework-guides) framework guide.
 It will guide you through the installation process.
 
+All you need to do is
+
+```js
+yarn add -D tailwindcss postcss autoprefixer
+
+yarn tailwindcss init -p
+```
+
+or if you use npm then
+
+```js
+npm install -D tailwindcss postcss autoprefixer
+
+npx tailwindcss init -p
+```
+
 After the installation is done, head over to your `tailwind.config.js` file and add `darkMode` property to the object and set it's value to `class`.
 
 ```js
 module.exports = {
-    content: [...],
-    darkMode: "class",
-    ...
-}
+	content: ["./pages/**/*.{js,jsx}", "./components/**/*.{js,jsx}"],
+	darkMode: "class",
+	theme: {
+		extend: {},
+	},
+	plugins: [],
+};
 ```
 
 Now add `dark` pseudo selector to apply darkmode styles to your webpage, like shown in [TailwindCSS DarkMode](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually). That's it, that is how you add darkmode to your website. But wait, that's not persisting. The darkmode will dissappear once you refresh your page. That's where the segment below comes into play.
@@ -41,43 +60,119 @@ Now add `dark` pseudo selector to apply darkmode styles to your webpage, like sh
 
 I will be taking NextJs as a framework here. You're free to choose yours and translate accordingly. Please follow the code below.
 
-```
-import { useState, useEffect } from "react";
-// useState is a react hook with which we can manipulate states
-// useEffect is a react hook which helps with lifecycle of the react app
+First let's create `Navbar.js` and some JSX and styling to it
 
+```js
 export default function Navbar() {
-    const [isDarkMode, setIsDarkMode] = useState(false)
-    // to store the darkmode state
-
-    const toggleDarkMode = (e) => {
-        setIsDarkMode(!isDarkMode) // change the state to the opposite of itself (toggle)
-        localStorage.setItem("isDarkMode", toString(!isDarkMode)); // set the darkmode state to the localStorage
-        document.querySelector("body").classList.toggle("dark") // add the `dark` class to the body of the html page
-    }
-
-    useEffect(() => {
-        const isDarkModeToggled = localStorage.getItem("isDarkMode") // checks if the page used darkmode before refresh
-        const body = document.querySelector("body")
-
-        if(isDarkModeToggled === "true") { // if the page was set to use darkmode before refresh then add the darkmode to the current refreshed page as well
-            setIsDarkMode(true);
-            body.classList.add("dark");
-        }
-    }, [])
-    return (
-        <header>
-            <div>TailwindCSS DarkMode</div>
-            <nav>
-                <button onClick={e => toggleDarkMode(e)}>Toggle Dark Mode</button>
-                {/* toggle darkmode on click */}
-            </nav>
-        </header>
-    )
+	return (
+		<header className='md:w-4/6 h-16 mx-auto flex px-2 items-center justify-between'>
+			<div className='font-bold text-lg'>Tailwindcss Dark Mode</div>
+			<nav>
+				<button className='cursor-pointer hover:text-indigo-600'>
+					Toggle Dark Mode
+				</button>
+			</nav>
+		</header>
+	);
 }
 ```
 
-> The parts needed explanation has been explained through comments.
+Since tailwindcss uses utility classes, hence the styling are added through classes. Simple, right?
+
+Anyways, let's import `useState` and `useEffect` hooks
+
+```js
+import { useState, useEffect } from "react";
+```
+
+We will look into what to actually do with the two hooks. For now let's move on and add a `onClick` event to our button.
+
+```js
+<button
+	className='cursor-pointer hover:text-indigo-600'
+	onClick={toggleDarkMode}
+>
+	Toggle Dark Mode
+</button>
+```
+
+When the button is clicked, it will trigger the `onClick` event which in turn will call the `toggleDarkMode` function.
+Now to put the called function to our code.
+
+```js
+const toggleDarkMode = (e) => {
+	e.preventDefault();
+};
+```
+
+A button when clicked triggers a default, page reload, behavior. To prevent that we use the `preventDefault` function available in the event (`e`) object. Now let's declare a boolean state to check whether the dark mode is toggled or not and initialize it as false.
+
+```js
+const [isEnabled, setIsEnabled] = useState(false);
+```
+
+Pretty self explanatory. Now when the button is clicked we need to update our state, store the updated information to localstorage and add/remove `dark` class from body depending on if it's already present or not. Here's how to do that.
+
+```js
+const toggleDarkMode = (e) => {
+	e.preventDefault();
+	setIsEnabled(!isEnabled);
+	localStorage.setItem("darkmode", toString(!isEnabled));
+	document.querySelector("body").classList.toggle("dark");
+};
+```
+
+Whenever the button is clicked, the state will update to inverse of it's current value, that means, if `isEnabled === true`, then on button clicked it will update to false and vice-versa. Now you might have a question, "Why are we setting inverse of already updated value to localstorage? Shouldn't it be just the updated value?". Well, the nature of a state in React could be [asynchronous](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous), which means it won't actually update immediately. And that is what will happen here. Therefore as a counter, we need to use the inverse value of the state, since we know that is what the updated state is going to be.
+
+We are mostly done with the manual dark mode handling. Now for the actual stuff that's going to check if we were using dark mode before reloading / existing session. We will be using `useEffect` which will be triggered before the component paints any content to the screen, that is as of React 18. Before that it would trigger after the page is finished loading the DOM. Anyways, you don't have to worry about it since it works almost the same as it did in creation of this blog.
+
+```js
+useEffect(() => {
+	const wasDarkMode = localStorage.getItem("darkMode");
+
+	if (wasDarkMode === "true") {
+		setIsEnabled(true);
+		document.querySelector("body").classList.add("dark");
+	}
+}, []);
+```
+
+If dark mode was already enabled then just updated everything to true. Here's the complete code.
+
+```js
+import { useState, useEffect } from "react";
+
+export default function Navbar() {
+	const [isEnabled, setIsEnabled] = useState(false);
+
+	const toggleDarkMode = (e) => {
+		e.preventDefault();
+		setIsEnabled(!isEnabled);
+		localStorage.setItem("darkmode", toString(!isEnabled));
+		document.querySelector("body").classList.toggle("dark");
+	};
+
+	useEffect(() => {
+		const wasDarkMode = localStorage.getItem("darkMode");
+
+		if (wasDarkMode === "true") {
+			setIsEnabled(true);
+			document.querySelector("body").classList.add("dark");
+		}
+	}, []);
+
+	return (
+		<header className='md:w-4/6 h-16 mx-auto flex px-2 items-center justify-between'>
+			<div className='font-bold text-lg'>Tailwindcss Dark Mode</div>
+			<nav>
+				<button className='cursor-pointer hover:text-indigo-600'>
+					Toggle Dark Mode
+				</button>
+			</nav>
+		</header>
+	);
+}
+```
 
 ### Conclusion
 
