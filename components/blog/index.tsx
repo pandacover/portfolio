@@ -1,8 +1,7 @@
-import { H1 } from "../styled";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
-import { ParseMarkdown, Head, Variant } from "../../lib";
+import { useParseMarkdown } from "../../lib";
+import { Head } from "../";
 
 type PropsType = {
 	title: string;
@@ -17,29 +16,26 @@ export default function Blogs({
 	content = "Content",
 	date = "Not Mentioned",
 	author = "Luv Makin",
-	slug = "404",
 }: PropsType) {
+	const markdownContent = useParseMarkdown({ content });
+
 	return (
-		<motion.article
-			className='prose lg:prose-xl dark:prose-invert mt-12 relative'
-			initial='initial'
-			animate='animate'
-			variants={Variant("bounce")}
-		>
-			<Head>{title}</Head>
-			<Link href='/blogs' passHref>
-				<a
+		<>
+			<Head title={title} />
+			<article className='prose lg:prose-xl dark:prose-invert mt-12 relative'>
+				<Link
+					href='/blogs'
 					className='my-8 flex items-center height-fit gap-2 pointer-cursor text-[1rem]'
 					onClick={(e) => e.currentTarget.classList.add("animate-ping")}
 				>
 					{<BsArrowLeft />} Back
-				</a>
-			</Link>
-			<H1>{title}</H1>
-			<ParseMarkdown content={content} />
-			<p className='text-right'>
-				{author} - {date}
-			</p>
-		</motion.article>
+				</Link>
+				<h1>{title}</h1>
+				{markdownContent}
+				<p className='text-right'>
+					{author} - {date}
+				</p>
+			</article>
+		</>
 	);
 }

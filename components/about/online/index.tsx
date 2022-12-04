@@ -32,14 +32,12 @@ const Online = () => {
 			<ul className='pt-4 flex flex-col gap-2'>
 				{Social.map((item) => (
 					<li key={item.id} className='pl-2 text-emerald-600 font-semibold'>
-						<Link href={item.link}>
-							<a
-								target='_blank'
-								className='flex items-center w-fit px-4 py-2 hover:bg-emerald-100 rounded-lg transition'
-							>
-								<span className='pr-2'>{item.icon}</span>
-								<span>{item.name}</span>
-							</a>
+						<Link
+							href={item.link}
+							className='flex items-center w-fit px-4 py-2 hover:bg-emerald-100 rounded-lg transition'
+						>
+							<span className='pr-2'>{item.icon}</span>
+							<span>{item.name}</span>
 						</Link>
 					</li>
 				))}

@@ -3,19 +3,10 @@ import { ScrollContext } from "../../../lib/scroll-observer";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { NavbarItems } from "./nav-items";
 
 import { HiOutlineSun } from "react-icons/hi";
 import { IoMdMoon } from "react-icons/io";
-
-const NavbarItems = [
-	{ id: "-nav-item-1", name: "Projects", link: "/projects" },
-	{ id: "-nav-items-2", name: "Contact", link: "/contact" },
-	{
-		id: "-nav-items-3",
-		name: "Blogs",
-		link: "/blogs",
-	},
-];
 
 const Navbar = () => {
 	const [darkMode, setDarkMode] = useState(false);
@@ -42,28 +33,22 @@ const Navbar = () => {
 			setDarkMode(true);
 		}
 	}, []);
+
 	return (
-		<motion.nav
-			variants={variants}
-			animate='animate'
-			initial='initial'
+		<nav
 			className={`z-[999] w-[110%] ml-[-5%] h-14 top-0 sticky flex flex-wrap items-center transition-all bg-[#0001] dark:bg-[#fff1] px-5 md:px-[6%] rounded-b-[.6rem] backdrop-blur-md
     ${scrollY > 280 ? "dark:bg-[#000] bg-gray-300" : ""}`}
 		>
 			<ul className='flex flex-[2] gap-2 h-full items-center'>
 				<li className='mr-4 group'>
-					<Link href='/' passHref>
-						<a className='font-semibold'>
-							L
-							<span
-								className='text-blue-500 hover:opacity-60'
-								style={
-									router.asPath === "/" ? {} : { color: "rgba(239 68 68)" }
-								}
-							>
-								M
-							</span>
-						</a>
+					<Link href='/' className='font-semibold'>
+						L
+						<span
+							className='text-blue-500 hover:opacity-60'
+							style={router.asPath === "/" ? {} : { color: "rgba(239 68 68)" }}
+						>
+							M
+						</span>
 					</Link>
 				</li>
 				{NavbarItems.map(({ id, name, link }) => {
@@ -79,7 +64,7 @@ const Navbar = () => {
 							}
 						>
 							<Link href={link} passHref>
-								<a>{name}</a>
+								{name}
 							</Link>
 						</li>
 					);
@@ -104,7 +89,7 @@ const Navbar = () => {
 					</button>
 				)}
 			</div>
-		</motion.nav>
+		</nav>
 	);
 };
 

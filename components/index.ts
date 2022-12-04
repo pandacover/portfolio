@@ -6,3 +6,5 @@ export { default as Projects } from "./project/projects";
 export { default as Project } from "./project";
 export { default as Card } from "./card";
 export { default as Blog } from "./blog";
+export { default as Loader } from "./loader";
+export { default as Head } from "./head";

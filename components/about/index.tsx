@@ -66,19 +66,23 @@ const About = () => {
 			<p className='pt-2'>
 				&nbsp;&nbsp;&nbsp;&nbsp;I am a full-stack web developer and an
 				undergraduate in Computer Science at <br />{" "}
-				<Link href={collegeURL}>
-					<a className='text-red-500 hover:underline' target='_blank'>
-						Chitkara University
-					</a>
+				<Link
+					href={collegeURL}
+					className='text-red-500 hover:underline'
+					target='_blank'
+				>
+					Chitkara University
 				</Link>
 				. I have been constantly under the tech radar and am continuously trying
 				to learn from this tech driven world. Besides development, I also have
 				an interest in problem solving and have currently solved more than 300
 				problems in{" "}
-				<Link href={leetcodeURL}>
-					<a className='text-amber-500 hover:underline' target='_blank'>
-						Leetcode
-					</a>
+				<Link
+					href={leetcodeURL}
+					className='text-amber-500 hover:underline'
+					target='_blank'
+				>
+					Leetcode
 				</Link>
 				{
 					". Whenever I'm not coding, I love reading light-novels, playing games and/or listening to music."

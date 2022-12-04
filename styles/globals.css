@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.custom-loader {
-	border-color: #000 #000 #000 #ccf;
-}
-
-body.dark .custom-loader {
-	border-color: #fff #fff #fff #ccf;
-}
-
 @layer components {
 	.nav-link {
 		@apply h-5/6 flex relative items-center after:absolute after:w-0 after:bottom-0 after:h-[2px] after:bg-zinc-500 hover:after:animate-spread-bottom;
@@ -34,8 +26,43 @@ body.dark .custom-loader {
 	.blueGradientRight {
 		@apply bg-gradient-to-tr from-blue-400 to-blue-800 bg-clip-text text-transparent;
 	}
+
+	.primary-btn {
+		@apply relative w-full h-full flex items-center justify-center rounded-sm text-white dark:bg-indigo-700 bg-emerald-600 hover:bg-emerald-400 dark:hover:bg-indigo-500 disabled:bg-gray-300 dark:disabled:bg-[#141414];
+	}
+
+	.input {
+		@apply text-sm outline-none px-4 py-3 border-none bg-gray-300 focus-within:bg-gray-300/70 dark:bg-[#161616] dark:focus-within:bg-[#191919];
+	}
+
+	.custom-loader {
+		@apply w-6 h-6 rounded-full animate-spin border-4 border-dotted border-l-emerald-600 border-t-emerald-600 border-r-white border-b-white;
+	}
+
+	body.dark .custom-loader {
+		@apply border-l-indigo-700 border-t-indigo-700;
+	}
 }
 
 .nav-link:after {
 	left: calc(50% - 2px);
+}
+
+::-webkit-scrollbar {
+	width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #209;
+}
+
+.text-container {
+	height: 40px;
+	line-clamp: 2;
+	overflow-y: hidden;
+	display: -webkit-box;
+	text-overflow: ellipsis;
+	margin-bottom: 5px;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
