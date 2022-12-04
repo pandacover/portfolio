@@ -7,7 +7,7 @@ const Projects: NextPage = () => {
 		<>
 			<Head title='Projects' />
 			<div className='w-full h-full mt-16'>
-				<h1 className='font-black text-6xl pb-8 w-fit'>
+				<h1 className='font-black text-5xl md:text-6xl pb-8 w-fit'>
 					My{" "}
 					<span className='text-cyan-500 dark:text-indigo-700'>Projects</span>
 				</h1>

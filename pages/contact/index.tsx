@@ -26,7 +26,7 @@ const Contact: NextPage = () => {
 				<div className='mt-16'>
 					{isAlert && <Alert />}
 
-					<h1 className='text-6xl mb-6 font-black w-fit dark:border-gray-400 border-black'>
+					<h1 className='text-5xl md:text-6xl mb-6 font-black w-fit dark:border-gray-400 border-black'>
 						<span className='text-emerald-600 dark:text-indigo-700'>
 							Contact
 						</span>{" "}

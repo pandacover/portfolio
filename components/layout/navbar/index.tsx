@@ -4,12 +4,12 @@ import { useRouter } from "next/router";
 import { NavbarItems } from "./nav-items";
 import { IoMdMoon } from "react-icons/io";
 import { HiOutlineSun } from "react-icons/hi";
-import { ScrollContext } from "../../../lib/scroll-observer";
-import React, { useState, useContext, useEffect } from "react";
+import { useScrollContext } from "../../../lib/scroll-observer";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
 	const [darkMode, setDarkMode] = useState(false);
-	const { scrollY } = useContext(ScrollContext);
+	const { scrollY } = useScrollContext();
 	const router = useRouter();
 
 	const toggleTheme = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

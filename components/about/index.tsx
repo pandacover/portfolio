@@ -1,5 +1,5 @@
-import React, { useContext, useRef } from "react";
-import { ScrollContext } from "../../lib/scroll-observer";
+import React, { useRef } from "react";
+import { useScrollContext } from "../../lib/scroll-observer";
 import Link from "next/link";
 
 type SpanProps = {
@@ -25,7 +25,7 @@ const Span = ({ children, progress, lowerLimit }: SpanProps) => {
 };
 
 const About = () => {
-	const { scrollY } = useContext(ScrollContext);
+	const { scrollY } = useScrollContext();
 	const collegeURL = "https://www.chitkara.edu.in/";
 	const leetcodeURL = "https://www.leetcode.com/luvmakin";
 	const refContainer = useRef<HTMLDivElement>(null);
@@ -37,7 +37,7 @@ const About = () => {
 	}
 
 	return (
-		<div ref={refContainer} className='pt-6'>
+		<div ref={refContainer} className='pt-6 font-light'>
 			<h1 className='transition min-h-fit text-7xl font-bold py-12'>
 				<Span progress={progress} lowerLimit={0}>
 					Hi{" "}
@@ -64,8 +64,8 @@ const About = () => {
 				About Me
 			</h3>
 			<p className='pt-2'>
-				&nbsp;&nbsp;&nbsp;&nbsp;I am a full-stack web developer and an
-				undergraduate in Computer Science at <br />{" "}
+				I am a full-stack web developer and an undergraduate in Computer Science
+				at <br />{" "}
 				<Link
 					href={collegeURL}
 					className='text-red-500 hover:underline'

@@ -26,7 +26,7 @@ const Bio = () => {
 			<h1 className='text-xl font-bold tracking-wide border-b-4 border-zinc-500 w-fit'>
 				Bio
 			</h1>
-			<ul className='pt-4'>
+			<ul className='pt-4 font-light'>
 				{BioList.map((item) => (
 					<li key={item.id} className='pb-4'>
 						<span className='font-bold pr-4'>{item.date}</span>

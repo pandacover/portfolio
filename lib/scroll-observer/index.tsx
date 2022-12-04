@@ -1,10 +1,22 @@
-import React, { useEffect, useState, useCallback, createContext } from "react";
+import React, {
+	useEffect,
+	useState,
+	useCallback,
+	createContext,
+	useContext,
+} from "react";
 
 type ContextType = {
 	scrollY: number;
 };
 
 export const ScrollContext = createContext<ContextType>({ scrollY: 0 });
+
+export const useScrollContext = () => {
+	const context = useContext(ScrollContext);
+	if (!context) throw new Error("Use context inside a provider");
+	return context;
+};
 
 interface PropsType {
 	children: React.ReactNode;
