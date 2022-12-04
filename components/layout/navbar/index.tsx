@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ScrollContext } from "../../../lib/scroll-observer";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { NavbarItems } from "./nav-items";
@@ -18,11 +17,6 @@ const Navbar = () => {
 		setDarkMode(!darkMode);
 		document.querySelector("body")?.classList.toggle("dark");
 		window.localStorage.setItem("dark", "" + !darkMode);
-	};
-
-	const variants = {
-		initial: { opacity: 0 },
-		animate: { opacity: 1, transition: { delay: 0.2 } },
 	};
 
 	useEffect(() => {
