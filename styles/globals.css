@@ -46,7 +46,7 @@
 	}
 
 	.blog-container pre {
-		@apply text-sm whitespace-pre-wrap bg-black text-white;
+		@apply text-sm whitespace-pre-wrap bg-black text-white dark:bg-zinc-800/95;
 	}
 
 	.text-container {
@@ -64,8 +64,17 @@ body {
 
 ::-webkit-scrollbar {
 	width: 2px;
+	height: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #209;
+	background: #000;
+}
+
+body.dark::-webkit-scrollbar-track {
+	background: #121212;
+}
+
+body::-webkit-scrollbar-track {
+	background: #ccc;
 }
