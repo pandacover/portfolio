@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { sendEmail } from "../../lib";
 import { Loader, Head, Alert } from "../../components";
 import { NextPage } from "next";
@@ -10,13 +10,14 @@ const Contact: NextPage = () => {
 	const [isAlert, setIsAlert] = useState(false);
 	const [[email, message], setData] = useState(["", ""]);
 
-	const handleSubmit = (e: any) => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setLoading(true);
 		setIsAlert(true);
 		sendEmail(formRef.current);
 		setIsAlert(false);
 		setLoading(false);
+		setData(["", ""]);
 	};
 
 	return (
@@ -32,7 +33,7 @@ const Contact: NextPage = () => {
 						</span>{" "}
 						Me!
 					</h1>
-					<form ref={formRef} onSubmit={(e) => handleSubmit(e)} className=''>
+					<form ref={formRef} onSubmit={handleSubmit} className=''>
 						<div className='flex flex-col gap-2 mb-8'>
 							<label className='text-sm' htmlFor='email'>
 								Email

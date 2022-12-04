@@ -12,11 +12,10 @@ const ID: IDType = {
 	keyID: "UaPwiYTTTCRuyjWMU",
 };
 
-export default function SendEmail(form: any) {
-	emailJs.sendForm(ID.serviceID, ID.templateID, form, ID.keyID).then(
-		(response) => {},
-		(error) => {
-			console.error(error.message);
-		}
-	);
+export default async function SendEmail(form: any) {
+	try {
+		await emailJs.sendForm(ID.serviceID, ID.templateID, form, ID.keyID);
+	} catch (err) {
+		console.error(err);
+	}
 }
