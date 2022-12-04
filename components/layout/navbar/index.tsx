@@ -1,11 +1,11 @@
-import React, { useState, useContext, useEffect } from "react";
-import { ScrollContext } from "../../../lib/scroll-observer";
 import Link from "next/link";
+import NavLink from "../../nav-link";
 import { useRouter } from "next/router";
 import { NavbarItems } from "./nav-items";
-
-import { HiOutlineSun } from "react-icons/hi";
 import { IoMdMoon } from "react-icons/io";
+import { HiOutlineSun } from "react-icons/hi";
+import { ScrollContext } from "../../../lib/scroll-observer";
+import React, { useState, useContext, useEffect } from "react";
 
 const Navbar = () => {
 	const [darkMode, setDarkMode] = useState(false);
@@ -48,19 +48,9 @@ const Navbar = () => {
 				{NavbarItems.map(({ id, name, link }) => {
 					const regexLink = new RegExp(`${link}?[a-zA-Z]((/)[a-zA-Z]*)*`);
 					return (
-						<li
-							key={id}
-							className='nav-link mr-2'
-							style={
-								regexLink.test(router.asPath)
-									? {}
-									: { color: "rgba(113 112 113)" }
-							}
-						>
-							<Link href={link} passHref>
-								{name}
-							</Link>
-						</li>
+						<NavLink href={link} key={id}>
+							{name}
+						</NavLink>
 					);
 				})}
 			</ul>

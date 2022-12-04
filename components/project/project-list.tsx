@@ -12,7 +12,7 @@ type ProjectType = {
 };
 const Projects: ProjectType = {
 	"Void List": {
-		id: "1",
+		id: "project-item-1",
 		name: "Void List",
 		details:
 			"Void List is a todo-list web application created with MERN stack and tailwindcss. You can create, edit and delete a task. When you authenticate for the first time, you are given a customize avatar which is randamized.",
@@ -30,7 +30,7 @@ const Projects: ProjectType = {
 		image: "/assets/-pandacover-voidlist.png",
 	},
 	"Goal Setter": {
-		id: "2",
+		id: "project-item-2",
 		name: "Goal Setter",
 		details:
 			"GoalSetter is a personal goal setting application created with MERN stack. GoalSetter lets you create, edit, update and delete your personal goals only while keeping you and others away from manipulating else's goals.",
@@ -41,7 +41,7 @@ const Projects: ProjectType = {
 		image: "/assets/-pandacover-goalsetter.png",
 	},
 	"Expense Tracker": {
-		id: "3",
+		id: "project-item-3",
 		name: "Expense Tracker",
 		details:
 			"A React.js expense tracker to keep note of your credits and debits. It can also calculate your overall savings.",
@@ -52,7 +52,7 @@ const Projects: ProjectType = {
 		image: "/assets/-pandacover-tracker.png",
 	},
 	"Swiggy Clone": {
-		id: "4",
+		id: "project-item-4",
 		name: "Swiggy Clone",
 		details: "A clone of Swiggy's website landing page made in React.js",
 		live: "https://swiggy-clone-edyst.netlify.app/",
@@ -62,7 +62,7 @@ const Projects: ProjectType = {
 		tech: ["React.js"],
 	},
 	Sudoku: {
-		id: "4",
+		id: "project-item-5",
 		name: "Sudoku",
 		details:
 			"Sudoku game created with JavaScript, Html and Css. The game has 3 difficulty levels ranging from Easy to Hard. Do you have what it takes to solve the puzzle?",
@@ -73,7 +73,7 @@ const Projects: ProjectType = {
 		tech: ["HTML", "CSS", "JavaScript"],
 	},
 	"Pokemon Wiki": {
-		id: "5",
+		id: "project-item-6",
 		name: "Pokemon Wiki",
 		details:
 			"A Wiki page for the famous T.V. show and game Pokémon. Created with Html and Css. The website is fully responsive with mobiles too.",

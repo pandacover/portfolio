@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
 	.nav-link {
-		@apply h-5/6 flex relative items-center after:absolute after:w-0 after:bottom-0 after:h-[2px] after:bg-zinc-500 hover:after:animate-spread-bottom;
+		@apply text-sm h-5/6 flex relative items-center after:absolute after:w-0 after:bottom-0 after:h-[2px] after:bg-zinc-500 hover:after:animate-spread-bottom;
 	}
 
 	.emeraldGradientLeft {
@@ -42,6 +44,10 @@
 	body.dark .custom-loader {
 		@apply border-l-indigo-700 border-t-indigo-700;
 	}
+}
+
+body {
+	font-family: "Poppins", sans-serif;
 }
 
 .nav-link:after {

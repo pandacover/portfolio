@@ -18,7 +18,7 @@ const Project = ({ title, content, liveHref, sourceHref, imageSrc }: Props) => {
 			<div className='min-w-full min-h-screen px-2'>
 				<Link
 					href='/projects'
-					className='my-8 flex items-center height-fit gap-2 pointer-cursor'
+					className='mb-14 flex items-center height-fit gap-2 pointer-cursor'
 					onClick={(e) => e.currentTarget.classList.add("animate-ping")}
 				>
 					{<BsArrowLeft />} Back

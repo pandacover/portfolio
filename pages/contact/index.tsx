@@ -1,9 +1,8 @@
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { sendEmail } from "../../lib";
-import { Loader, Head } from "../../components";
+import { Loader, Head, Alert } from "../../components";
 import { NextPage } from "next";
-import Alert from "./alert";
 
 const Contact: NextPage = () => {
 	const formRef = useRef(null);
@@ -15,9 +14,7 @@ const Contact: NextPage = () => {
 		e.preventDefault();
 		setLoading(true);
 		setIsAlert(true);
-
 		sendEmail(formRef.current);
-
 		setIsAlert(false);
 		setLoading(false);
 	};
@@ -41,14 +38,14 @@ const Contact: NextPage = () => {
 								Email
 							</label>
 							<input
+								required
 								id='email'
 								type='email'
 								name='email'
-								required
 								maxLength={100}
 								className='input'
 								disabled={loading}
-								placeholder='Type your email here...'
+								placeholder='john@doe.com'
 								onChange={(e) => setData([e.target.value, message])}
 							/>
 						</div>
@@ -63,7 +60,7 @@ const Contact: NextPage = () => {
 								maxLength={300}
 								disabled={loading}
 								className='input h-32 resize-none'
-								placeholder='Type your message here...'
+								placeholder='Nice website :)'
 								onChange={(e) => setData([email, e.target.value])}
 							/>
 						</div>

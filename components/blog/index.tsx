@@ -22,10 +22,10 @@ export default function Blogs({
 	return (
 		<>
 			<Head title={title} />
-			<article className='prose lg:prose-xl dark:prose-invert mt-12 relative'>
+			<article className='prose lg:prose-xl dark:prose-invert relative'>
 				<Link
 					href='/blogs'
-					className='my-8 flex items-center height-fit gap-2 pointer-cursor text-[1rem]'
+					className='mb-14 flex items-center height-fit gap-2 pointer-cursor text-[1rem]'
 					onClick={(e) => e.currentTarget.classList.add("animate-ping")}
 				>
 					{<BsArrowLeft />} Back
