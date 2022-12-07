@@ -1,8 +1,14 @@
 {
-	"name": "portfolio-v3",
+	"name": "portfolio",
 	"version": "0.1.0",
 	"private": true,
 	"license": "MIT",
+	"author": {
+		"name": "Luv Makin",
+		"alias": "pandacover",
+		"email": "luvmakin01@gmail.com",
+		"url": "https://luv-sage.vercel.app"
+	},
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",

@@ -1,22 +1,11 @@
 import { Card, Head } from "../../components";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import { getSortedPostsData } from "../../lib/posts";
 
-type PostType = {
-	posts: {
-		slug: string;
-		frontmatter: {
-			title: string;
-			excerpt: string;
-			author: string;
-			date: string;
-			imgSrc?: string;
-		};
-	}[];
+type propsType = {
+	everyPostsData: Omit<PostType, "content">[];
 };
 
-export default function Blogs({ posts }: PostType) {
+export default function Blogs({ everyPostsData }: propsType) {
 	return (
 		<>
 			<Head title='Blogs' />
@@ -26,17 +15,17 @@ export default function Blogs({ posts }: PostType) {
 					My <span className='text-teal-600 dark:text-rose-400'>Blogs</span>
 				</h1>
 				<ul className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-					{posts.map((post, idx: number) => (
+					{everyPostsData.map((post) => (
 						<Card
-							parentUrl='/blogs'
-							link={post.slug}
-							title={post.frontmatter.title}
-							desc={post.frontmatter.excerpt}
-							key={idx}
 							type='blog'
-							author={post.frontmatter.author}
-							date={post.frontmatter.date}
-							imgSrc={post.frontmatter.imgSrc}
+							key={post.id}
+							link={post.id}
+							date={post.date}
+							title={post.title}
+							desc={post.excerpt}
+							author={post.author}
+							imgSrc={post.imgSrc}
+							parentUrl='/blogs'
 						/>
 					))}
 				</ul>
@@ -45,23 +34,12 @@ export default function Blogs({ posts }: PostType) {
 	);
 }
 
-export async function getStaticProps() {
-	const files = fs.readdirSync(path.join("public", "blogs"));
-	const posts = files.map((filename) => {
-		const slug = filename.replace(".md", "");
-		const mardownWithMeta = fs.readFileSync(
-			path.join("public", "blogs", filename),
-			"utf-8"
-		);
-		const { data: frontmatter } = matter(mardownWithMeta);
-		return {
-			slug,
-			frontmatter,
-		};
-	});
+export const getStaticProps = () => {
+	const everyPostsData = getSortedPostsData();
+
 	return {
 		props: {
-			posts,
+			everyPostsData,
 		},
 	};
-}
+};
