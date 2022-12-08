@@ -115,10 +115,9 @@ Pretty self explanatory. Now when the button is clicked we need to update our st
 
 ```js
 const toggleDarkMode = (e) => {
-	e.preventDefault();
 	setIsEnabled(!isEnabled);
 	localStorage.setItem("darkmode", toString(!isEnabled));
-	document.querySelector("body").classList.toggle("dark");
+	document.body.classList.toggle("dark");
 };
 ```
 
@@ -132,7 +131,7 @@ useEffect(() => {
 
 	if (wasDarkMode === "true") {
 		setIsEnabled(true);
-		document.querySelector("body").classList.add("dark");
+		document.body.classList.add("dark");
 	}
 }, []);
 ```
@@ -146,10 +145,9 @@ export default function Navbar() {
 	const [isEnabled, setIsEnabled] = useState(false);
 
 	const toggleDarkMode = (e) => {
-		e.preventDefault();
 		setIsEnabled(!isEnabled);
 		localStorage.setItem("darkmode", toString(!isEnabled));
-		document.querySelector("body").classList.toggle("dark");
+		document.body.classList.toggle("dark");
 	};
 
 	useEffect(() => {
@@ -157,7 +155,7 @@ export default function Navbar() {
 
 		if (wasDarkMode === "true") {
 			setIsEnabled(true);
-			document.querySelector("body").classList.add("dark");
+			document.body.classList.add("dark");
 		}
 	}, []);
 
